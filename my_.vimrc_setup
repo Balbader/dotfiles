@@ -1,86 +1,109 @@
  " ============== General Config ===============
- execute pathogen#infect()
- syntax on                          "turn on syntax highlighting
- set number                         " Show line number
- set rnu                            " Set relative number
- set backspace=indent,eol,start     " Allow backspace in insert mode
- set history=1000                   " Store lots of :cmdline history
- set showcmd                        " Show incomplete cmds down the bottom
- set hidden                         " Keeps any buffer being edited in the background
- set noerrorbells                   " No sound effect
- set scrolloff=8                    " Minimal number of screen lines to keep above and below the cursor
- " set signcolumn=yes                 " Displays an extra column that will show errors on left side of screen
- set background=dark
+execute pathogen#infect()
+syntax on                          "turn on syntax highlighting
+set number                         " Show line number
+set cursorline                     " Enables cursor line position tracking
+"set rnu                            " Set relative number
+set backspace=indent,eol,start     " Allow backspace in insert mode
+set history=1000                   " Store lots of :cmdline history
+set showcmd                        " Show incomplete cmds down the bottom
+set hidden                         " Keeps any buffer being edited in the background
+set noerrorbells                   " No sound effect
+set completeopt-=preview           " No preview buffer on autocomplete
+set scrolloff=8                    " Minimal number of screen lines to keep above and below the cursor
+set signcolumn=yes                " Displays an extra column that will show errors on left side of screen
+set background=dark
 
- set colorcolumn=80
- highlight ColorColumn ctermbg=0 guibg=lightgrey 
-
-
-
- " ============== File Search Highlithing and case sensitive  ===============
- set incsearch                      " Highlight search
- set hlsearch                       " Highlight all occurences of search
- set nohlsearch                     " Removes Highlight from result
- set ignorecase                     " Ignore case when searching...
- set smartcase                      " ... we use a caps
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey 
 
 
 
- " ============== Turn off Swap Files ===============
- set noswapfile                     " Disable swap files permanently
- set nobackup                       " Backup file is immediately deleted upon successfully writing the original file
- set undodir=~/.vim/undodir         " Save your history and undo changes
- set undofile
+" ============== File Search Highlithing and case sensitive  ===============
+set incsearch                      " Highlight search
+set hlsearch                       " Highlight all occurences of search
+set nohlsearch                     " Removes Highlight from result
+set ignorecase                     " Ignore case when searching...
+set smartcase                      " ... we use a caps
 
 
 
- " ============== Indentation ===============
- set tabstop=4                      " Set tab to 4 spaces
- set softtabstop=4                  " Set tab to 4 spaces when using '/t'
- set shiftwidth=4                   " Level of indentation set to 4
- set expandtab                      " Insert spaces for tabs
- " set smartindent                    " Automatically inserts one extra level of indentation
- " set smarttab                       " Affects how <TAB> key presses are interpreted depending on where the cursor is
- " set autoindent                     " Copy the indentation from the previous line
- set list listchars=tab:\ \ ,trail:· " Display tabs and trailing spaces visually
- set nowrap                         " To display long lines as just one line
- " set linebreak                      " Wrap lines at convenient points without putting EOL
- set breakindent                    " Line is visually indented
+" ============== Turn off Swap Files ===============
+set noswapfile                     " Disable swap files permanently
+set nobackup                       " Backup file is immediately deleted upon successfully writing the original file
+set undodir=~/.vim/undodir         " Save your history and undo changes
+set undofile
+
+
+
+" ============== Indentation ===============
+set tabstop=4                      " Set tab to 4 spaces
+set softtabstop=4                  " Set tab to 4 spaces when using '/t'
+set shiftwidth=4                   " Level of indentation set to 4
+set expandtab                      " Insert spaces for tabs
+"set smartindent                    " Automatically inserts one extra level of indentation
+"set smarttab                       " Affects how <TAB> key presses are interpreted depending on where the cursor is
+"set autoindent                     " Copy the indentation from the previous line
+set list listchars=tab:\ \ ,trail:· " Display tabs and trailing spaces visually
+set nowrap                         " To display long lines as just one line
+"set linebreak                     " Wrap lines at convenient points without putting EOL
+set breakindent                    " Line is visually indented
 
 
 
 " ================= Plugins ======================
- call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
- Plug 'junegunn/fzf.vim'
- Plug 'airblade/vim-rooter'
- Plug 'vim-ruby/vim-ruby'
- Plug 'gruvbox-community/gruvbox'
- Plug 'leafgarland/typescript-vim'
- Plug 'jremmen/vim-ripgrep'
- Plug 'tpope/vim-fugitive'
- Plug 'vim-airline/vim-airline'
- Plug 'vim-utils/vim-man'
- Plug 'lyuts/vim-rtags'
- Plug 'git@github.com:kien/ctrlp.vim.git'
- Plug 'git@github.com:Valloric/YouCompleteMe.git'
- Plug 'mbbill/undotree'
- Plug 'severin-lemaignan/vim-minimap'
- Plug 'mattn/emmet-vim'
- Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+Plug 'vim-ruby/vim-ruby'
+Plug 'gruvbox-community/gruvbox'
+Plug 'leafgarland/typescript-vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-utils/vim-man'
+Plug 'lyuts/vim-rtags'
+Plug 'git@github.com:kien/ctrlp.vim.git'
+Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'mbbill/undotree'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'dbridges/vim-markdown-runner'
+Plug 'preservim/nerdtree'
+Plug 'codota/tabnine-vim'
 
- call plug#end()
+call plug#end()
 
- colorscheme gruvbox
- highlight Normal guibg=black guifg=black
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+highlight Normal guibg=black guifg=black
+
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
 
 
+" ============== Emmet Shortcuts ===============
+let g:user_emmet_mode="n"
+let g:user_emmet_leader_key=","
 
- " ============== Emmet Shortcuts ===============
- let g:user_emmet_mode="n"
- let g:user_emmet_leader_key=","
 
- " ============== File Search Shortcuts ============
- nnoremap <C-P> :Files<Cr>
+" ============== File Search Shortcuts ============
+nnoremap <C-f> <Esc>:Files<CR>
 
+
+" ============== MarkdownRunner Shortcuts ============
+nnoremap <C-r> <Esc>:MarkdownRunnerInsert<CR>
+
+
+" ============== NERDTree Shortcuts ============
+nnoremap <C-e> <Esc>:NERDTreeFind<CR>
+nnoremap <C-c> <Esc>:NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
