@@ -18,7 +18,12 @@ set background=dark
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
+highlight Normal guibg=black guifg=black
 
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
 
 
 " ============== File Search Highlithing and case sensitive  ===============
@@ -29,13 +34,11 @@ set ignorecase                     " Ignore case when searching...
 set smartcase                      " ... we use a caps
 
 
-
 " ============== Turn off Swap Files ===============
 set noswapfile                     " Disable swap files permanently
 set nobackup                       " Backup file is immediately deleted upon successfully writing the original file
 set undodir=~/.vim/undodir         " Save your history and undo changes
 set undofile
-
 
 
 " ============== Indentation ===============
@@ -50,7 +53,6 @@ set list listchars=tab:\ \ ,trail:· " Display tabs and trailing spaces visually
 set nowrap                         " To display long lines as just one line
 "set linebreak                     " Wrap lines at convenient points without putting EOL
 set breakindent                    " Line is visually indented
-
 
 
 " ================= Plugins ======================
@@ -96,6 +98,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
+
 " ================= colorshemes ======================
 "colorscheme gruvbox
 "colorscheme onehalfdark
@@ -106,20 +109,13 @@ call plug#end()
 colorscheme hybrid_material
 "colorscheme hybrid_reverse
 
+
 " ================= airlines ======================
 "let g:airline_theme='gruvbox'
 "let g:airline_theme='onehalfdark'
 "let g:airline_theme='tender'
 "let g:airline_theme='palenight'
 let g:airline_theme='hybrid'
-
-
-highlight Normal guibg=black guifg=black
-
-hi clear CursorLine
-augroup CLClear
-    autocmd! ColorScheme * hi clear CursorLine
-augroup END
 
 
 " ============== Emmet Shortcuts ===============
@@ -138,6 +134,7 @@ nnoremap <C-r> <Esc>:MarkdownRunnerInsert<CR>
 " ============== NERDTree Shortcuts ============
 nnoremap <C-e> <Esc>:NERDTreeFind<CR>
 nnoremap <C-c> <Esc>:NERDTreeToggle<CR>
+
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
