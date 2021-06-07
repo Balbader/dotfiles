@@ -1,6 +1,7 @@
- " ============== General Config ===============
+" ============== General Config ===============
 execute pathogen#infect()
 syntax on                          "turn on syntax highlighting
+set encoding=UTF-8
 set number                         " Show line number
 set cursorline                     " Enables cursor line position tracking
 "set rnu                            " Set relative number
@@ -13,6 +14,7 @@ set completeopt-=preview           " No preview buffer on autocomplete
 set scrolloff=8                    " Minimal number of screen lines to keep above and below the cursor
 set signcolumn=yes                " Displays an extra column that will show errors on left side of screen
 set background=dark
+"set background=light
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
@@ -58,8 +60,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'vim-ruby/vim-ruby'
-Plug 'gruvbox-community/gruvbox'
 Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -68,6 +70,7 @@ Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'mattn/emmet-vim'
@@ -75,12 +78,42 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'dbridges/vim-markdown-runner'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 Plug 'codota/tabnine-vim'
+Plug 'scrooloose/nerdcommenter'
+
+
+" ================= themes ======================
+Plug 'gruvbox-community/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'jacoborus/tender.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+" ================= colorshemes ======================
+"colorscheme gruvbox
+"colorscheme onehalfdark
+"colorscheme onehalflight
+"colorscheme tender
+"colorscheme nord
+"colorscheme palenight
+colorscheme hybrid_material
+"colorscheme hybrid_reverse
+
+" ================= airlines ======================
+"let g:airline_theme='gruvbox'
+"let g:airline_theme='onehalfdark'
+"let g:airline_theme='tender'
+"let g:airline_theme='palenight'
+let g:airline_theme='hybrid'
+
+
 highlight Normal guibg=black guifg=black
 
 hi clear CursorLine
@@ -107,3 +140,19 @@ nnoremap <C-e> <Esc>:NERDTreeFind<CR>
 nnoremap <C-c> <Esc>:NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+let g:NERDTreeIgnore = ['^node_modules$'] 
+
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+
+"============== coc config ===============
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ ]
