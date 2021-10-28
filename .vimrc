@@ -117,10 +117,10 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'alexanderheldt/monokrom.vim'
+Plug 'vim-syntastic/syntastic'
 
 
 " ============== Vim Norminette  =============================================
-"Plug 'vim-syntastic/syntastic'
 "Plug 'alexandregv/norminette-vim'
 
 call plug#end()
