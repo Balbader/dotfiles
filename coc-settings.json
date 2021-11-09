@@ -17,9 +17,9 @@
     "javascriptreact",
     "typescript.tsx"
   ],
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
+  "diagnostic.errorSign": "x",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "?",
   "languageserver": {
     "ccls": {
       "command": "ccls",
