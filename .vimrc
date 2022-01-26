@@ -221,9 +221,9 @@ call plug#end()
 "let ayucolor="dark"   " for dark version of theme
 
 " tokyonight colorshemes backgrounds
-let g:tokyonight_style = 'night' "
+"let g:tokyonight_style = 'night' "
 "let g:tokyonight_style = 'storm'
-let g:tokyonight_enable_italic = 1
+"let g:tokyonight_enable_italic = 1
 
 
 " =============================================================================
