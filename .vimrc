@@ -36,8 +36,10 @@ augroup filetype javascript syntax=javascript
 " =============================================================================
 " Set Indentation lines
 " =============================================================================
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_auto_colors = 1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_setColors = 0
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
 
 " =============================================================================
 " Set buffer line at top of window
@@ -128,6 +130,10 @@ Plug 'jremmen/vim-ripgrep'
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
+
+" Indentation
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 
 " AirLine
 Plug 'vim-airline/vim-airline'
