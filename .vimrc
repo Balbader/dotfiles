@@ -185,27 +185,14 @@ Plug 'sheerun/vim-polyglot'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
+Plug 'habamax/vim-gruvbit'
 Plug 'arcticicestudio/nord-vim'
 Plug 'casonadams/nord.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'ajmwagar/vim-deus'
-Plug 'chriskempson/base16-vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'yunlingz/vsc-dark-plus-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'ayu-theme/ayu-vim'
-Plug 'alexanderheldt/monokrom.vim'
 Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
-Plug 'srcery-colors/srcery-vim'
-Plug 'habamax/vim-gruvbit'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'pacokwon/onedarkhc.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'arzg/vim-colors-xcode'
-Plug 'Softmotions/vim-dark-frost-theme'
-Plug 'ulwlu/elly.vim'
-Plug 'mhartington/oceanic-next'
-Plug 'owickstrom/vim-colors-paramount'
-Plug 'mangeshrex/uwu.vim'
 Plug 'dikiaap/minimalist'
 
 call plug#end()
@@ -234,44 +221,21 @@ let g:gruvbox_contrast_dark = 'hard'
 " =============================================================================
 " Colorsheme
 " =============================================================================
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme gruvbit
 "colorscheme nord
-"colorscheme hybrid_reverse
-"colorscheme hybrid
-"colorscheme deus
-"colorscheme jellybeans
-"colorscheme base16-default-dark
-"colorscheme monochrome
-"colorscheme srcery
 "colorscheme codedark
-"colorscheme dark_plus
+colorscheme vsc_dark_plus
 "colorscheme dracula
-"colorscheme ayu
-"colorscheme monokrom
-"colorscheme two-firewatch
 "colorscheme aquarium
-"colorscheme raider
 "colorscheme tokyonight
 "colorscheme minimalist
-"colorscheme onedarkhc
-"colorscheme one
-"colorscheme onedark
-"colorscheme xcodedarkhc
-"colorscheme xcodedark
-"colorscheme xcodewwdc
-"colorscheme darkfrost
-"colorscheme lake
-"colorscheme elly
-"colorscheme OceanicNext
-"colorscheme paramount
-"colorscheme uwu
 
 
 " =============================================================================
 " Airline
 " =============================================================================
-let g:airline_theme = 'gruvbox'
+"let g:airline_theme = 'gruvbox'
 "let g:airline_theme = 'nord'
 "let g:airline_theme = 'hybrid'
 "let g:airline_theme = 'deus'
@@ -280,7 +244,7 @@ let g:airline_theme = 'gruvbox'
 "let g:airline_theme = 'base16_classic_dark'
 "let g:airline_theme = 'base16_aquarium_dark'
 "let g:airline_theme = 'monochrome'
-"let g:airline_theme = 'codedark'
+let g:airline_theme = 'codedark'
 "let g:airline_theme = 'onedark'
 
 let g:airline_powerline_fonts = 1
