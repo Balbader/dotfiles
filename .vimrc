@@ -159,7 +159,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Rainbow + {} ()
 Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 
 " MarkdownRunner -> Make markdown interactive
 Plug 'dbridges/vim-markdown-runner'
@@ -185,15 +185,25 @@ Plug 'sheerun/vim-polyglot'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
-Plug 'habamax/vim-gruvbit'
 Plug 'arcticicestudio/nord-vim'
 Plug 'casonadams/nord.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ajmwagar/vim-deus'
+Plug 'chriskempson/base16-vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'yunlingz/vsc-dark-plus-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ayu-theme/ayu-vim'
+Plug 'alexanderheldt/monokrom.vim'
 Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
+Plug 'habamax/vim-gruvbit'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'dikiaap/minimalist'
+Plug 'pacokwon/onedarkhc.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'Softmotions/vim-dark-frost-theme'
+Plug 'ulwlu/elly.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'mangeshrex/uwu.vim'
 
 call plug#end()
 
@@ -202,10 +212,10 @@ call plug#end()
 " =============================================================================
 "
 " gruvbox colorshemes backgrounds
-let g:gruvbox_termcolors = 16
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_termcolors = 16
+"let g:gruvbox_transparent_bg = 1
+"let g:gruvbox_italic = 1
+"let g:gruvbox_contrast_dark = 'hard'
 
 " ayu colorshemes backgrounds
 "let ayucolor="light"  " for light version of theme
@@ -224,12 +234,30 @@ let g:gruvbox_contrast_dark = 'hard'
 "colorscheme gruvbox
 "colorscheme gruvbit
 "colorscheme nord
+"colorscheme hybrid_reverse
+"colorscheme hybrid
+"colorscheme deus
+"colorscheme base16-default-dark
+"colorscheme base16-aquarium-dark
 "colorscheme codedark
-colorscheme vsc_dark_plus
+"colorscheme dark_plus
 "colorscheme dracula
+"colorscheme ayu
+"colorscheme monokrom
+"colorscheme two-firewatch
 "colorscheme aquarium
+"colorscheme raider
 "colorscheme tokyonight
 "colorscheme minimalist
+"colorscheme onedarkhc
+"colorscheme one
+"colorscheme onedark
+"colorscheme darkfrost
+"colorscheme lake
+"colorscheme elly
+colorscheme OceanicNext
+"colorscheme paramount
+"colorscheme uwu
 
 
 " =============================================================================
@@ -239,15 +267,13 @@ colorscheme vsc_dark_plus
 "let g:airline_theme = 'nord'
 "let g:airline_theme = 'hybrid'
 "let g:airline_theme = 'deus'
-"let g:airline_theme = 'jellybeans'
 "let g:airline_theme = 'base16'
 "let g:airline_theme = 'base16_classic_dark'
 "let g:airline_theme = 'base16_aquarium_dark'
-"let g:airline_theme = 'monochrome'
-let g:airline_theme = 'codedark'
+"let g:airline_theme = 'codedark'
 "let g:airline_theme = 'onedark'
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 set showtabline=2
 
 if !exists('g:airline_symbols')
@@ -275,10 +301,10 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
