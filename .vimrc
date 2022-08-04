@@ -199,11 +199,7 @@ Plug 'habamax/vim-gruvbit'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'pacokwon/onedarkhc.vim'
 Plug 'joshdick/onedark.vim'
-"Plug 'Softmotions/vim-dark-frost-theme'
-"Plug 'ulwlu/elly.vim'
 Plug 'mhartington/oceanic-next'
-"Plug 'owickstrom/vim-colors-paramount'
-"Plug 'mangeshrex/uwu.vim'
 Plug 'EdenEast/nightfox.nvim'
 
 " 42 Header
