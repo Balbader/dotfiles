@@ -191,7 +191,6 @@ Plug 'casonadams/nord.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasiser/vim-code-dark'
-"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'alexanderheldt/monokrom.vim'
 Plug 'ghifarit53/tokyonight-vim'
