@@ -185,17 +185,15 @@ Plug 'sheerun/vim-polyglot'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
+Plug 'habamax/vim-gruvbit'
 Plug 'arcticicestudio/nord-vim'
 Plug 'casonadams/nord.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'ajmwagar/vim-deus'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'alexanderheldt/monokrom.vim'
-Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
-Plug 'habamax/vim-gruvbit'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'pacokwon/onedarkhc.vim'
 Plug 'joshdick/onedark.vim'
@@ -206,6 +204,12 @@ Plug 'EdenEast/nightfox.nvim'
 Plug '42Paris/42header'
 
 call plug#end()
+
+" =============================================================================
+" 42 Header
+" =============================================================================
+let g:user42 = '#####################################'
+let g:mail42 = '#####################################'
 
 " =============================================================================
 " Colorsheme presets
@@ -234,31 +238,20 @@ call plug#end()
 "colorscheme gruvbox
 "colorscheme gruvbit
 "colorscheme nord
+colorscheme nordfox
 "colorscheme hybrid_reverse
 "colorscheme hybrid
-"colorscheme deus
 "colorscheme base16-default-dark
 "colorscheme base16-aquarium-dark
 "colorscheme codedark
 "colorscheme dark_plus
-"colorscheme dracula
 "colorscheme ayu
 "colorscheme monokrom
-"colorscheme two-firewatch
-"colorscheme aquarium
-"colorscheme raider
 "colorscheme tokyonight
-colorscheme nordfox
-"colorscheme minimalist
 "colorscheme onedarkhc
 "colorscheme one
 "colorscheme onedark
-"colorscheme darkfrost
-"colorscheme lake
-"colorscheme elly
 "colorscheme OceanicNext
-"colorscheme paramount
-"colorscheme uwu
 
 
 " =============================================================================
