@@ -7,7 +7,8 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+export TERM=xterm-256color
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
@@ -23,18 +24,10 @@ export PATH
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # lvim ========================================================================
-#export EDITOR='lvim'
-#export PATH=$PATH:$HOME/.local/bin
+export EDITOR='lvim'
+export PATH=$PATH:$HOME/.local/bin
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Add wisely, as too many plugins slow down shell startup.
@@ -48,6 +41,21 @@ source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 
+# Tmux ========================================================================
+alias tm="tmux"
+alias tmns="tmux new -s"
+alias tmnsd="tmux new -d -s"
+alias tml="tmux ls"
+alias tma="tmux a"
+alias tmk="tmux kill-ses"
+
+# nvim ========================================================================
+alias n="nvim"
+
+# vimrc && zshrc ==============================================================
+alias vimconf="vim ~/.vimrc"
+alias zconf="vim ~/.zshrc"
+
 # Git =========================================================================
 alias g="git"
 alias ga="git add"
@@ -58,11 +66,16 @@ alias gcl="git clone"
 alias grm="git rm -rf"
 alias rm="rm -rf"
 alias cl="clear"
-alias cat="batcat"
 alias lg="lazygit"
 
 # GCC =========================================================================
 alias go="gcc -Wall -Wextra -Werror"
+
+# Valgrind ====================================================================
+alias val="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes"
+
+# fsanatize ===================================================================
+alias fsan="gcc -fsanatize=address -g2"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
