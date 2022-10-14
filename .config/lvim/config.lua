@@ -11,9 +11,8 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "onedark"
--- lvim.colorscheme = "tokyonight-storm"
+lvim.format_on_save = false
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -33,17 +32,16 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- autoindent
+vim.opt.smartindent = false
+vim.opt.smartcase = false
 vim.opt.autoindent = true
+vim.opt.cindent = true
 
 -- set column to 80
 vim.opt.colorcolumn = "80"
 
 -- transparent_window
 lvim.transparent_window = false
-
--- status line
-lvim.builtin.lualine.style = "default"
--- lvim.builtin.lualine.options.theme = "tokyonight"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -76,13 +74,13 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+	name = "+Trouble",
+	r = { "<cmd>Trouble lsp_references<cr>", "References" },
+	f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+	d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+	q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+	w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -90,7 +88,8 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -154,7 +153,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-lvim.format_on_save = false
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "black", filetypes = { "python" } },
@@ -188,11 +186,41 @@ lvim.format_on_save = false
 --   },
 -- }
 
+-- lvim.colorscheme = "vscode"
+-- lvim.colorscheme = "darkplus"
+
+lvim.colorscheme = "one-nvim"
+
+-- lvim.colorscheme = "kyotonight"
+-- lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyodark"
+
+-- lvim.colorscheme = "nordfox"
+-- lvim.colorscheme = "nord"
+-- lvim.colorscheme = "onenord"
+
+-- lvim.colorscheme = "gruvbox-material"
+-- lvim.colorscheme = "gruvbox-baby"
+-- lvim.colorscheme = "neogruvbox"
+
+
+-- status line
+lvim.builtin.lualine.style = "lvim"
+-- lvim.builtin.lualine.options.theme = "one-nvim"
+
+
 -- Additional Plugins
 lvim.plugins = {
 	{ "folke/tokyonight.nvim" },
-	-- { "joshdick/onedark.vim" },
-	{ "navarasu/onedark.nvim" },
+	{ "tiagovla/tokyodark.nvim" },
+	{ "EdenEast/nightfox.nvim" },
+	{ "Th3Whit3Wolf/one-nvim" },
+	{ "rmehri01/onenord.nvim" },
+	{ "sainnhe/gruvbox-material" },
+	{ "Mofiqul/vscode.nvim" },
+	{ "arcticicestudio/nord-vim" },
+	{ "almo7aya/neogruvbox.nvim" },
+	{ "laniusone/kyotonight.vim" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",

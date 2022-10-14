@@ -1,0 +1,14 @@
+[[language]]
+name = "c"
+scope = "source.c"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+indent = { tab-width = 4, unit = "\t"}
