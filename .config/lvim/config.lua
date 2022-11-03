@@ -184,7 +184,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- lvim.colorscheme = "vscode"
--- lvim.colorscheme = "darkplus"
+lvim.colorscheme = "darkplus"
 
 -- lvim.colorscheme = "one-nvim"
 
@@ -208,6 +208,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- status line
 lvim.builtin.lualine.style = "default"
+-- lvim.builtin.lualine.style = "lvim"
 -- lvim.builtin.lualine.options.theme = "vscode"
 
 -- transparent_window
