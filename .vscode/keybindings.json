@@ -1,0 +1,57 @@
+// Place your key bindings in this file to override the defaults
+[
+    // Navigate between editor and terminal
+    {
+        "key":     "ctrl+g",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key":     "ctrl+g",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when":    "terminalFocus"
+    },
+
+    // Up, Down, Left, Right
+    {
+        "key":     "ctrl+e",
+        "command": "cursorUp"
+    },
+    {
+        "key":     "ctrl+d",
+        "command": "cursorDown"
+    },
+    {
+        "key":     "ctrl+f",
+        "command": "cursorRight"
+    },
+    {
+        "key":     "ctrl+s",
+        "command": "cursorLeft"
+    },
+
+    // Navigate open Editors
+    {
+        "key": "ctrl+[ ",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+] ",
+        "command": "workbench.action.nextEditor"
+    },
+
+    // Open / Close Sidebar
+    {
+        "key": "ctrl+o ",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+
+    // Tab to cycle through auto-complete options
+    {   "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {   "key": "shift+tab",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    }
+]

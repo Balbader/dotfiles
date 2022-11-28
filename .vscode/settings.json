@@ -1,0 +1,11 @@
+{
+    "workbench.editor.highlightModifiedTabs": true,
+    "keyboard.dispatch": "keyCode",
+    "explorer.sortOrder": "type",
+    "workbench.colorCustomizations":
+    {
+        "editorCursor.foreground": "#538d22",
+        "terminalCursor.foreground": "#538d22"
+    },
+    "workbench.colorTheme": "Default Material Dark Theme"
+}
