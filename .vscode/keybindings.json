@@ -21,6 +21,24 @@
         "command": "workbench.action.nextEditor"
     },
 
+    // Up, Down, Left, Right
+    {
+        "key":     "ctrl+e",
+        "command": "cursorUp"
+    },
+    {
+        "key":     "ctrl+d",
+        "command": "cursorDown"
+    },
+    {
+        "key":     "ctrl+f",
+        "command": "cursorRight"
+    },
+    {
+        "key":     "ctrl+s",
+        "command": "cursorLeft"
+    },
+
     // Open / Close Sidebar
     {
         "key": "ctrl+o ",
