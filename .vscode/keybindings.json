@@ -11,24 +11,6 @@
         "when":    "terminalFocus"
     },
 
-    // Up, Down, Left, Right
-    {
-        "key":     "ctrl+e",
-        "command": "cursorUp"
-    },
-    {
-        "key":     "ctrl+d",
-        "command": "cursorDown"
-    },
-    {
-        "key":     "ctrl+f",
-        "command": "cursorRight"
-    },
-    {
-        "key":     "ctrl+s",
-        "command": "cursorLeft"
-    },
-
     // Navigate open Editors
     {
         "key": "ctrl+[ ",
