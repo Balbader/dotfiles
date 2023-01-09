@@ -146,7 +146,7 @@ alias lg="lazygit"
 alias go="gcc -g -Wall -Wextra -Werror"
 
 # Valgrind ====================================================================
-alias val="valgrind  --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes"
+alias val="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes"
 
 # fsanatize ===================================================================
 alias fsan="gcc -fsanitize=address -g2"
