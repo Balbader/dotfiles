@@ -1,6 +1,5 @@
 --[[
 lvim is the global options object
-
 Linters should be
 filled in as strings with either
 a global executable or a path to
@@ -20,7 +19,7 @@ lvim.format_on_save = false
 vim.opt.relativenumber = true
 
 -- remove current line highlight
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -32,44 +31,50 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- autoindent
-vim.opt.smartindent = false
 vim.opt.smartcase = false
-vim.opt.autoindent = true
+vim.opt.autoindent = false
 vim.opt.cindent = true
+vim.opt.smartindent = true
 
 -- set column to 80
 vim.opt.colorcolumn = "80"
+
+-- show sign columg
+vim.opt.signcolumn = "yes"
+
+-- check spelling
+vim.opt.spelllang = "en"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
+-- for input mode
+i = {
+  ["<C-j>"] = actions.move_selection_next,
+  ["<C-k>"] = actions.move_selection_previous,
+  ["<C-n>"] = actions.cycle_history_next,
+  ["<C-p>"] = actions.cycle_history_prev,
+},
+  -- for normal mode
+  n = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+  },
+}
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
 	name = "+Trouble",
 	r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -84,7 +89,7 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -93,6 +98,7 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
 	"c",
+	"cpp",
 	"javascript",
 	"json",
 	"lua",
@@ -112,8 +118,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
---     "jsonls",
+-- 	"clangd",
 -- }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
@@ -184,31 +189,59 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- lvim.colorscheme = "vscode"
-lvim.colorscheme = "darkplus"
+-- lvim.colorscheme = "darkplus"
 
 -- lvim.colorscheme = "one-nvim"
 
 -- lvim.colorscheme = "kyotonight"
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
+-- lvim.colorscheme = "lunar"
 
 -- lvim.colorscheme = "nordfox"
 -- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
-
--- lvim.colorscheme = "duskfox"
--- lvim.colorscheme = "carbonfox"
--- lvim.colorscheme = "nightfox"
--- lvim.colorscheme = "terafox"
-
+-- lvim.colorscheme = "onedarker"
+lvim.colorscheme = "onedark"
+require('onedark').setup {
+    style = 'cool'
+    -- style = 'deep'
+    -- style = 'dark'
+    -- style = 'darker'
+    -- style = 'warm'
+    -- style = 'warmer'
+}
+require('onedark').load()
 -- lvim.colorscheme = "gruvbox-material"
 -- vim.g.gruvbox_material_background = 'hard'
+
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true,
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "hard", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
+
+-- lvim.colorscheme = "gruvbox"
+-- vim.o.gruvbox_background = 'dark'
+
 -- lvim.colorscheme = "neogruvbox"
 
 
 -- status line
-lvim.builtin.lualine.style = "default"
--- lvim.builtin.lualine.style = "lvim"
+-- lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.style = "lvim"
 -- lvim.builtin.lualine.options.theme = "vscode"
 
 -- transparent_window
@@ -217,7 +250,6 @@ lvim.transparent_window = false
 
 -- Additional Plugins
 lvim.plugins = {
-	{ "folke/tokyonight.nvim" },
 	{ "tiagovla/tokyodark.nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "Th3Whit3Wolf/one-nvim" },
@@ -228,6 +260,9 @@ lvim.plugins = {
 	{ "arcticicestudio/nord-vim" },
 	{ "almo7aya/neogruvbox.nvim" },
 	{ "laniusone/kyotonight.vim" },
+	{"ellisonleao/gruvbox.nvim"},
+	-- {"LunarVim/onedarker.nvim"},
+	{"navarasu/onedark.nvim"},
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
@@ -244,6 +279,10 @@ lvim.plugins = {
 				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 			})
 		end,
+	},
+	{
+		"folke/lsp-colors.nvim",
+		event = "BufRead",
 	},
 }
 
