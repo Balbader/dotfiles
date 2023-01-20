@@ -59,6 +59,9 @@ else
   export EDITOR='lvim'
 fi
 
+# Display images in the terminal ==============================================
+alias icat="kitty +kitten icat"
+
 # Tmux ========================================================================
 alias tm="tmux"
 alias tmns="tmux new -s"
@@ -102,6 +105,3 @@ alias val="valgrind  --leak-check=full --track-origins=yes --show-leak-kinds=all
 alias fsan="gcc -fsanitize=address -g2"
 
 source /mnt/nfs/homes/baalbade/sgoinfre/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-PATH=/mnt/nfs/homes/baalbade/.local/bin:/mnt/nfs/homes/baalbade/sgoinfre/.brew/bin:/mnt/nfs/homes/baalbade/bin:/mnt/nfs/homes/baalbade/.local/kitty.app/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/mnt/nfs/homes/baalbade/Dev/TOOLS/Headermaker
-# PATH=/mnt/nfs/homes/baalbade/.local/bin:/mnt/nfs/homes/baalbade/sgoinfre/.brew/bin:/mnt/nfs/homes/baalbade/bin:/mnt/nfs/homes/baalbade/.local/kitty.app/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/mnt/nfs/homes/baalbade/Dev/42_CURSUS/42_push_swap/PUSH_SWAP/Headermaker
-# PATH=/mnt/nfs/homes/baalbade/.local/bin:/mnt/nfs/homes/baalbade/sgoinfre/.brew/bin:/mnt/nfs/homes/baalbade/bin:/mnt/nfs/homes/baalbade/.local/kitty.app/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/mnt/nfs/homes/baalbade/Headermaker
