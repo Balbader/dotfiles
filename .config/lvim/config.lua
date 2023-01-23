@@ -191,8 +191,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.colorscheme = "vscode"
 -- lvim.colorscheme = "darkplus"
 
--- lvim.colorscheme = "one-nvim"
-
 -- lvim.colorscheme = "kyotonight"
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
@@ -201,17 +199,18 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.colorscheme = "nordfox"
 -- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
--- lvim.colorscheme = "onedarker"
+
 lvim.colorscheme = "onedark"
 require('onedark').setup {
-    style = 'cool'
+    -- style = 'cool'
     -- style = 'deep'
     -- style = 'dark'
     -- style = 'darker'
-    -- style = 'warm'
+    style = 'warm'
     -- style = 'warmer'
 }
 require('onedark').load()
+
 -- lvim.colorscheme = "gruvbox-material"
 -- vim.g.gruvbox_material_background = 'hard'
 
@@ -226,7 +225,7 @@ require("gruvbox").setup({
   invert_tabline = false,
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
+  contrast = "soft", -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
@@ -234,8 +233,6 @@ require("gruvbox").setup({
 })
 
 -- lvim.colorscheme = "gruvbox"
--- vim.o.gruvbox_background = 'dark'
-
 -- lvim.colorscheme = "neogruvbox"
 
 
@@ -252,7 +249,6 @@ lvim.transparent_window = false
 lvim.plugins = {
 	{ "tiagovla/tokyodark.nvim" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "Th3Whit3Wolf/one-nvim" },
 	{ "rmehri01/onenord.nvim" },
 	{ "sainnhe/gruvbox-material" },
 	{ "Mofiqul/vscode.nvim" },
@@ -261,7 +257,6 @@ lvim.plugins = {
 	{ "almo7aya/neogruvbox.nvim" },
 	{ "laniusone/kyotonight.vim" },
 	{"ellisonleao/gruvbox.nvim"},
-	-- {"LunarVim/onedarker.nvim"},
 	{"navarasu/onedark.nvim"},
 	{
 		"folke/trouble.nvim",
@@ -284,6 +279,9 @@ lvim.plugins = {
 		"folke/lsp-colors.nvim",
 		event = "BufRead",
 	},
+	{
+		"lukoshkin/trailing-whitespace",
+	}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
