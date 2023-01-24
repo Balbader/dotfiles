@@ -200,13 +200,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
 
-lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "onedark"
 require('onedark').setup {
     -- style = 'cool'
     -- style = 'deep'
     -- style = 'dark'
     -- style = 'darker'
-    style = 'warm'
+    -- style = 'warm'
     -- style = 'warmer'
 }
 require('onedark').load()
@@ -215,24 +215,24 @@ require('onedark').load()
 -- vim.g.gruvbox_material_background = 'hard'
 
 require("gruvbox").setup({
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = true,
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "soft", -- can be "hard", "soft" or empty string
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = false,
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	contrast = "", -- can be "hard", "soft" or empty string
+	palette_overrides = {},
+	overrides = {},
+	dim_inactive = false,
+	transparent_mode = false,
 })
 
--- lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "neogruvbox"
 
 
