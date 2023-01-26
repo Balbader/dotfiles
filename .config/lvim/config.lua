@@ -19,7 +19,7 @@ lvim.format_on_save = false
 vim.opt.relativenumber = true
 
 -- remove current line highlight
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -47,10 +47,12 @@ vim.opt.spelllang = "en"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
 -- unmap a default keymapping vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
@@ -199,40 +201,78 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.colorscheme = "nordfox"
 -- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
-
--- lvim.colorscheme = "onedark"
-require('onedark').setup {
+-- Lua
+require('onedark').setup  {
+    -- Main options --
     -- style = 'cool'
     -- style = 'deep'
     -- style = 'dark'
     -- style = 'darker'
     -- style = 'warm'
-    -- style = 'warmer'
+    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'italic',
+        functions = 'italic,bold',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = true, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+		underline = false,
+        background = false,    -- use background color for virtual text
+    },
 }
+
+lvim.colorscheme = "onedark"
 require('onedark').load()
 
 -- lvim.colorscheme = "gruvbox-material"
--- vim.g.gruvbox_material_background = 'hard'
+-- vim.g.gruvbox_material_background = "hard"
 
-require("gruvbox").setup({
-	undercurl = true,
-	underline = true,
-	bold = true,
-	italic = true,
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	contrast = "", -- can be "hard", "soft" or empty string
-	palette_overrides = {},
-	overrides = {},
-	dim_inactive = false,
-	transparent_mode = false,
-})
+-- require('gruvbox').setup({
+-- 	undercurl = true,
+-- 	underline = true,
+-- 	bold = true,
+-- 	italic = true,
+-- 	strikethrough = true,
+-- 	invert_selection = false,
+-- 	invert_signs = false,
+-- 	invert_tabline = false,
+-- 	invert_intend_guides = false,
+-- 	inverse = true, -- invert background for search, diffs, statuslines and errors
+-- 	contrast = "hard", -- can be "hard", "soft" or empty string
+-- 	palette_overrides = {},
+-- 	overrides = {},
+-- 	dim_inactive = false,
+-- 	transparent_mode = false,
+-- })
 
-lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "neogruvbox"
 
 
