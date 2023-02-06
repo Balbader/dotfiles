@@ -1,22 +1,25 @@
---#############################
---# General					  #
---#############################
+--[[
+lvim is the global options object
+Linters should be
+filled in as strings with either
+a global executable or a path to
+an executable
+]]
 
+-- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+
+-- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
--- blinking cursor
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
-
 -- set relativenumber
 vim.opt.relativenumber = true
 
 -- remove current line highlight
--- vim.opt.cursorline = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -42,23 +45,17 @@ vim.opt.signcolumn = "yes"
 -- check spelling
 vim.opt.spelllang = "en"
 
--- status line
--- lvim.builtin.lualine.style = "default"
-lvim.builtin.lualine.style = "lvim"
-
--- transparent_window
-lvim.transparent_window = false
--- lvim.transparent_window = true
-
---#############################
---# keybindings				  #
---#############################
+-- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
+-- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
+-- unmap a default keymapping vim.keymap.del("n", "<C-Up>")
+-- override a default keymapping
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -66,7 +63,7 @@ local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
 -- for input mode
 i = {
-  ["<C-j>"] = actions.move_selection_next,
+  ["tC-j>"] = actions.move_selection_next,
   ["<C-k>"] = actions.move_selection_previous,
   ["<C-n>"] = actions.cycle_history_next,
   ["<C-p>"] = actions.cycle_history_prev,
@@ -118,10 +115,6 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
---#############################
---# LSP					  #
---#############################
 
 -- generic LSP settings
 
@@ -179,10 +172,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
---#############################
---# Linters					  #
---#############################
---
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
@@ -201,13 +190,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
---#############################
---# Extra colorscheme		  #
---#############################
-
 -- lvim.colorscheme = "vscode"
 -- lvim.colorscheme = "darkplus"
 
+-- lvim.colorscheme = "batman"
+-- lvim.colorscheme = "breakinbad"
+--
 -- lvim.colorscheme = "kyotonight"
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
@@ -216,18 +204,15 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.colorscheme = "nordfox"
 -- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
-
---#############################
---# ONEDARK					  #
---#############################
+-- Lua
 require('onedark').setup  {
     -- Main options --
-    -- style = 'cool',
-    -- style = 'deep',
+    -- style = 'cool'
+    -- style = 'deep'
     -- style = 'dark',
-    -- style = 'darker',
-    -- style = 'warm',
-    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'darker',
+    -- style = 'warm'
+    -- style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = false,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -243,7 +228,7 @@ require('onedark').setup  {
     code_style = {
         comments = 'italic',
         keywords = 'italic',
-        functions = 'bold,italic',
+        functions = 'italic,bold',
         strings = 'none',
         variables = 'none'
     },
@@ -269,9 +254,9 @@ require('onedark').setup  {
 lvim.colorscheme = "onedark"
 require('onedark').load()
 
---#############################
---# GRUVBOX					  #
---#############################
+-- lvim.colorscheme = "gruvbox-material"
+-- vim.g.gruvbox_material_background = "hard"
+
 -- require('gruvbox').setup({
 -- 	undercurl = true,
 -- 	underline = true,
@@ -289,22 +274,46 @@ require('onedark').load()
 -- 	dim_inactive = false,
 -- 	transparent_mode = false,
 -- })
+
 -- lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "neogruvbox"
 
+-- rainbow parentheses
+lvim.builtin.treesitter.rainbow.enable = true
 
---#############################
---# Extra Plugins			  #
---#############################
+-- status line
+-- lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.style = "lvim"
+-- lvim.builtin.lualine.options.theme = "vscode"
+
+-- transparent_window
+lvim.transparent_window = false
+-- lvim.transparent_window = true
+
+-- Mind
+require('mind').setup( {
+	  'phaazon/mind.nvim',
+	  branch = 'v2.2',
+	  requires = { 'nvim-lua/plenary.nvim' },
+	  config = function()
+		require'mind'.setup()
+	  end
+})
+
+-- Additional Plugins
 lvim.plugins = {
 	{ "tiagovla/tokyodark.nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "rmehri01/onenord.nvim" },
+	{ "sainnhe/gruvbox-material" },
 	{ "Mofiqul/vscode.nvim" },
 	{ "martinsione/darkplus.nvim" },
 	{ "arcticicestudio/nord-vim" },
+	{ "almo7aya/neogruvbox.nvim" },
 	{ "laniusone/kyotonight.vim" },
-	{"ellisonleao/gruvbox.nvim"},
-	{"navarasu/onedark.nvim"},
+	{ "ellisonleao/gruvbox.nvim" },
+	{ "navarasu/onedark.nvim" },
+	{ "i3d/vim-jimbothemes" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
@@ -326,6 +335,23 @@ lvim.plugins = {
 		"folke/lsp-colors.nvim",
 		event = "BufRead",
 	},
+	{
+		"lukoshkin/trailing-whitespace",
+	},
+	{
+		"p00f/nvim-ts-rainbow",
+	},
+	{
+	  "npxbr/glow.nvim",
+	  ft = {"markdown"},
+	  -- run = "yay -S glow"
+	},
+	{
+		"phaazon/mind.nvim",
+	},
+	{
+		"stevearc/dressing.nvim",
+	}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -341,4 +367,3 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 -- })
 --   end,
-
