@@ -103,7 +103,7 @@ alias mf="make fclean"
 alias mc="make clean"
 
 # GCC =========================================================================
-alias go="gcc -g -Wall -Wextra -Werror"
+alias go="gcc -g -Wall -Wextra -Werror -g3"
 
 # Valgrind ====================================================================
 alias val="valgrind  --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes"
