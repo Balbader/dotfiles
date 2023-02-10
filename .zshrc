@@ -7,7 +7,6 @@ export PATH="/mnt/nfs/homes/baalbade/sgoinfre/.brew/bin:$PATH"
 
 # ZSH_THEME="balou"
 # ZSH_THEME="robbyrussell"
-eval "$(starship init zsh)"
 
 # LVIM ===========================================================
 export EDITOR='lvim'
@@ -29,7 +28,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 30
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -60,7 +59,7 @@ else
 fi
 
 # Display images in the terminal ==============================================
-alias icat="kitty +kitten icat"
+alias icat="kitty +kitten themes"
 
 # Tmux ========================================================================
 alias tm="tmux"
@@ -80,8 +79,11 @@ alias lv="lvim"
 alias h="hx"
 
 # vimrc && zshrc ==============================================================
+alias lconf="lvim ~/.config/lvim/config.lua"
 alias vimconf="lvim ~/.vimrc"
 alias zconf="lvim ~/.zshrc"
+alias kconf="lvim ~/.config/kitty/kitty.conf"
+alias sconf="lvim ~/.config/starship.toml"
 
 # Git =========================================================================
 alias g="git"
@@ -95,6 +97,11 @@ alias rm="rm -rf"
 alias cl="clear"
 alias lg="lazygit"
 
+# Makefile cmds ===============================================================
+alias m="make"
+alias mf="make fclean"
+alias mc="make clean"
+
 # GCC =========================================================================
 alias go="gcc -g -Wall -Wextra -Werror"
 
@@ -105,3 +112,4 @@ alias val="valgrind  --leak-check=full --track-origins=yes --show-leak-kinds=all
 alias fsan="gcc -fsanitize=address -g2"
 
 source /mnt/nfs/homes/baalbade/sgoinfre/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
