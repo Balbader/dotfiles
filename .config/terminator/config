@@ -1,8 +1,10 @@
 [global_config]
   window_state = hidden
-  tab_position = hidden
+  tab_position = bottom
+  always_on_top = True
   title_transmit_bg_color = "#3d3846"
-  inactive_color_offset = 0.4578313253012048
+  title_receive_bg_color = "#1a5fb4"
+  inactive_color_offset = 0.7508650519031141
   suppress_multiple_term_dialog = True
   title_use_system_font = False
   title_font = CodeNewRoman Nerd Font 9
@@ -10,10 +12,10 @@
   new_tab = <Primary>t
   cycle_next = ""
   go_next = <Primary>g
-  go_prev = <Alt>bracketleft
+  go_prev = <Alt>h
   go_down = ""
   go_left = ""
-  split_horiz = <Alt>h
+  split_horiz = <Alt>n
   split_vert = <Primary>v
   close_term = <Primary>d
   copy = <Primary>c
@@ -22,14 +24,17 @@
   resize_down = <Primary><Shift>d
   resize_left = <Primary><Shift>l
   resize_right = <Primary><Shift>r
-  next_tab = <Shift>Tab
-  prev_tab = ""
+  next_tab = <Alt>bracketright
+  prev_tab = <Alt>bracketleft
   reset = ""
   new_window = <Primary>w
+  layout_launcher = ""
+  help = ""
 [profiles]
   [[default]]
     icon_bell = False
     background_color = "#282828"
+    background_darkness = 0.8
     cursor_color = "#e66100"
     cursor_color_fg = False
     font = CodeNewRoman Nerd Font 10
@@ -48,4 +53,5 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
 [plugins]
