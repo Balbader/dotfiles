@@ -36,11 +36,19 @@ zstyle ':omz:update' frequency 30
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
+	cmdtime
 	git
 	zsh-autosuggestions
 	colored-man-pages
 	web-search
+	command-time
 )
+
+# Message color.
+ZSH_COMMAND_TIME_COLOR="cyan"
+
+# Message to display (set to "" for disable).
+ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,6 +92,7 @@ alias vimconf="lvim ~/.vimrc"
 alias zconf="lvim ~/.zshrc"
 alias kconf="lvim ~/.config/kitty/kitty.conf"
 alias sconf="lvim ~/.config/starship.toml"
+alias tconf="lvim ~/.config/terminator/config"
 
 # Git =========================================================================
 alias g="git"
@@ -101,6 +110,7 @@ alias lg="lazygit"
 alias m="make"
 alias mf="make fclean"
 alias mc="make clean"
+alias mr="make re"
 
 # GCC =========================================================================
 alias go="gcc -g -Wall -Wextra -Werror -g3"
@@ -109,7 +119,7 @@ alias go="gcc -g -Wall -Wextra -Werror -g3"
 alias val="valgrind  --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes"
 
 # fsanatize ===================================================================
-alias fsan="gcc -fsanitize=address -g2"
+alias fsan="gcc -fsanitize=address -g3"
 
 source /mnt/nfs/homes/baalbade/sgoinfre/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
