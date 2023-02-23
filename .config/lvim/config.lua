@@ -2,12 +2,27 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
+-- transparent_window
+-- lvim.transparent_window = false
+lvim.transparent_window = true
+
+-- rainbow parentheses
+lvim.builtin.treesitter.rainbow.enable = true
+
+-- status line
+-- lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.style = "lvim"
+
 -- set relativenumber
 vim.opt.relativenumber = true
+-- vim.opt.relativenumber = false
+
+-- Blinking Cursor
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- remove current line highlight
--- vim.opt.cursorline = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+-- vim.opt.cursorline = false
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -47,8 +62,8 @@ local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
 -- for input mode
 i = {
-  ["tC-j>"] = actions.move_selection_next,
-  ["<C-k>"] = actions.move_selection_previous,
+  ["<S-j>"] = actions.move_selection_next,
+  ["<S-k>"] = actions.move_selection_previous,
   ["<C-n>"] = actions.cycle_history_next,
   ["<C-p>"] = actions.cycle_history_prev,
 },
@@ -100,175 +115,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- generic LSP settings
-
--- -- make sure server will always be installed even if the server is in skipped_servers list
--- lvim.lsp.installer.setup.ensure_installed = {
--- 	"clangd",
--- }
--- -- change UI setting of `LspInstallInfo`
--- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
--- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
--- lvim.lsp.installer.setup.ui.border = "rounded"
--- lvim.lsp.installer.setup.ui.keymaps = {
---     uninstall_server = "d",
---     toggle_server_expand = "o",
--- }
-
--- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
-
--- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
--- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pyright", opts)
-
--- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
--- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
--- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
---   return server ~= "emmet_ls"
--- end, lvim.lsp.automatic_configuration.skipped_servers)
-
--- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
-
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
-
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
-
--- require('onedark').setup  {
---     -- Main options --
---     -- style = 'cool',
---     -- style = 'deep',
---     -- style = 'dark',
---     -- style = 'darker',
---     -- style = 'warm',
---     style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
---     transparent = false,  -- Show/hide background
---     term_colors = true, -- Change terminal color as per the selected theme style
---     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
---     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
---     -- toggle theme style ---
---     toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
---     toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
-
---     -- Change code style ---
---     -- Options are italic, bold, underline, none
---     -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
---     code_style = {
---         comments = 'italic',
---         keywords = 'italic',
---         functions = 'italic,bold',
---         strings = 'none',
---         variables = 'none'
---     },
-
---     -- Lualine options --
---     lualine = {
---         transparent = true, -- lualine center bar transparency
---     },
-
---     -- Custom Highlights --
---     colors = {}, -- Override default colors
---     highlights = {}, -- Override highlight groups
-
---     -- Plugins Config --
---     diagnostics = {
---         darker = true, -- darker colors for diagnostic
---         undercurl = true,   -- use undercurl instead of underline for diagnostics
--- 		underline = false,
---         background = false,    -- use background color for virtual text
---     },
--- }
-
--- lvim.colorscheme = "onedark"
--- require('onedark').load()
-
-require('gruvbox').setup({
-	undercurl = true,
-	underline = true,
-	bold = true,
-	italic = true,
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	contrast = "", -- can be "hard", "soft" or empty string
-	palette_overrides = {},
-	overrides = {},
-	dim_inactive = false,
-	transparent_mode = false,
-})
-
-lvim.colorscheme = "gruvbox"
--- lvim.colorscheme = "neogruvbox"
-
--- rainbow parentheses
-lvim.builtin.treesitter.rainbow.enable = true
-
--- status line
--- lvim.builtin.lualine.style = "default"
-lvim.builtin.lualine.style = "lvim"
--- lvim.builtin.lualine.options.theme = "vscode"
-
--- transparent_window
-lvim.transparent_window = false
--- lvim.transparent_window = true
-
--- lvim.colorscheme = "vscode"
--- lvim.colorscheme = "darkplus"
-
--- lvim.colorscheme = "kyotonight"
--- lvim.colorscheme = "tokyonight-night"
--- lvim.colorscheme = "tokyodark"
--- lvim.colorscheme = "lunar"
-
--- lvim.colorscheme = "nordfox"
--- lvim.colorscheme = "nord"
--- lvim.colorscheme = "onenord"
--- lvim.colorscheme = "poimandres"
-
 -- Diagnostics
 require'toggle_lsp_diagnostics'.init({ start_on = false })
 
@@ -282,9 +128,181 @@ require('mind').setup( {
 	  end
 })
 
--- Additional Plugins
+-- trailing-whitespace
+  require('trailing-whitespace').setup ({
+	 patterns = { '\\s\\+$' },
+	 default_color = '#333333',
+})
+
+-------------------------------------------------------------------------------
+-- COLORSCHEMES																  -
+-------------------------------------------------------------------------------
+
+-- lvim.colorscheme = "vscode"
+-- lvim.colorscheme = "darkplus"
+-- lvim.colorscheme = "dracula"
+
+-- lvim.colorscheme = "kyotonight"
+lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyodark"
+-- lvim.colorscheme = "lunar"
+
+-- lvim.colorscheme = "nordfox"
+-- lvim.colorscheme = "nord"
+-- lvim.colorscheme = "onenord"
+-- lvim.colorscheme = "poimandres"
+
+-------------
+-- ONEDARK --
+-------------
+require('onedark').setup  {
+    -- Main options --
+    -- style = 'cool',
+    -- style = 'deep',
+    -- style = 'dark',
+    -- style = 'darker',
+    -- style = 'warm',
+    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'italic',
+        -- functions = 'italic,bold',
+        functions = 'italic',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = true, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+		underline = false,
+        background = false,    -- use background color for virtual text
+    },
+}
+
+-- lvim.colorscheme = "onedark"
+-- require('onedark').load()
+
+-------------
+-- GRUVBOX --
+-------------
+require('gruvbox').setup({
+	undercurl = true,
+	underline = true,
+	bold = false,
+	italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	-- contrast = "hard", -- can be "hard", "soft" or empty string
+	contrast = "", -- can be "hard", "soft" or empty string
+	palette_overrides = {},
+	overrides = {},
+	dim_inactive = false,
+	transparent_mode = false,
+})
+-- lvim.colorscheme = "gruvbox"
+
+--------------
+-- MATERIAL --
+--------------
+require('material').setup({
+    styles = { -- Give comments style such as bold, italic, underline etc.
+        comments = { italic = true },
+        strings = { --[[ bold = true ]] },
+        keywords = { italic = true },
+        functions = { bold = true },
+        variables = {},
+        operators = {},
+        types = { italic = true },
+    },
+
+    plugins = { -- Uncomment the plugins that you use to highlight them
+        -- Available plugins:
+        "dap",
+        "indent-blankline",
+        "nvim-cmp",
+        "nvim-navic",
+        "nvim-tree",
+        "telescope",
+        "trouble",
+        "which-key",
+    },
+
+	contrast = {
+        terminal = true, -- Enable contrast for the built-in terminal
+        sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+        floating_windows = false, -- Enable contrast for floating windows
+        cursor_line = false, -- Enable darker background for the cursor line
+        non_current_windows = false, -- Enable darker background for non-current windows
+        filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
+    },
+
+    disable = {
+        colored_cursor = false, -- Disable the colored cursor
+        borders = false, -- Disable borders between verticaly split windows
+        -- background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+        background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+        term_colors = false, -- Prevent the theme from setting terminal colors
+        eob_lines = false -- Hide the end-of-buffer lines
+    },
+
+    high_visibility = {
+        lighter = true, -- Enable higher contrast text for lighter style
+        darker = true -- Enable higher contrast text for darker style
+    },
+
+    lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
+    async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
+	custom_colors = function(colors)
+		-- colors.syntax.keyword = "#F3701D"
+		-- colors.syntax.fn = "#40BF54"
+		-- colors.syntax.variable = "#F3701D"
+	end
+	, -- If you want to everride the default colors, set this to a function
+})
+
+-- vim.g.material_style = "deep ocean"
+vim.g.material_style = "darker"
+-- vim.g.material_style = "lighter"
+-- vim.g.material_style = "oceanic"
+-- vim.g.material_style = "palenight"
+
+-- lvim.colorscheme = "material"
+
+
+------------------------
+-- ADDITIONAL PLUGINS --
+------------------------
 lvim.plugins = {
 	{ "tiagovla/tokyodark.nvim" },
+	{ "Mofiqul/dracula.nvim" },
+	{ "marko-cerovac/material.nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "rmehri01/onenord.nvim" },
 	{ "sainnhe/gruvbox-material" },
@@ -330,17 +348,4 @@ lvim.plugins = {
 		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
 	}
 }
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
--- })
 --   end,
