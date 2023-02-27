@@ -10,8 +10,9 @@ lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
 -- status line
--- lvim.builtin.lualine.style = "default"
-lvim.builtin.lualine.style = "lvim"
+lvim.builtin.lualine.style = "default"
+-- lvim.builtin.lualine.style = "lvim"
+lvim.builtin.lualine.options.theme = "gruvbox-material"
 
 -- set relativenumber
 vim.opt.relativenumber = true
@@ -21,8 +22,8 @@ vim.opt.relativenumber = true
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- remove current line highlight
-vim.opt.cursorline = true
--- vim.opt.cursorline = false
+-- vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -143,7 +144,7 @@ require('mind').setup( {
 -- lvim.colorscheme = "dracula"
 
 -- lvim.colorscheme = "kyotonight"
-lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
 
@@ -162,7 +163,7 @@ require('onedark').setup  {
     -- style = 'dark',
     -- style = 'darker',
     -- style = 'warm',
-    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    -- style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = false,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -219,14 +220,14 @@ require('gruvbox').setup({
 	invert_tabline = false,
 	invert_intend_guides = false,
 	inverse = true, -- invert background for search, diffs, statuslines and errors
-	-- contrast = "hard", -- can be "hard", "soft" or empty string
-	contrast = "", -- can be "hard", "soft" or empty string
+	contrast = "hard", -- can be "hard", "soft" or empty string
+	-- contrast = "", -- can be "hard", "soft" or empty string
 	palette_overrides = {},
 	overrides = {},
 	dim_inactive = false,
 	transparent_mode = false,
 })
--- lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "gruvbox"
 
 --------------
 -- MATERIAL --
