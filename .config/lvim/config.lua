@@ -10,9 +10,12 @@ lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
 -- status line
-lvim.builtin.lualine.style = "default"
--- lvim.builtin.lualine.style = "lvim"
+-- lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
+-- lvim.builtin.lualine.options.theme = "iceberg_dark"
+-- lvim.builtin.lualine.options.theme = "horizon"
+-- lvim.builtin.lualine.options.theme = "onedark"
 
 -- set relativenumber
 vim.opt.relativenumber = true
@@ -135,99 +138,6 @@ require('mind').setup( {
 	 default_color = '#333333',
 })
 
--------------------------------------------------------------------------------
--- COLORSCHEMES																  -
--------------------------------------------------------------------------------
-
--- lvim.colorscheme = "vscode"
--- lvim.colorscheme = "darkplus"
--- lvim.colorscheme = "dracula"
-
--- lvim.colorscheme = "kyotonight"
--- lvim.colorscheme = "tokyonight-night"
--- lvim.colorscheme = "tokyodark"
--- lvim.colorscheme = "lunar"
-
--- lvim.colorscheme = "nordfox"
--- lvim.colorscheme = "nord"
--- lvim.colorscheme = "onenord"
--- lvim.colorscheme = "poimandres"
-
--------------
--- ONEDARK --
--------------
-require('onedark').setup  {
-    -- Main options --
-    -- style = 'cool',
-    -- style = 'deep',
-    -- style = 'dark',
-    -- style = 'darker',
-    -- style = 'warm',
-    -- style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-    transparent = false,  -- Show/hide background
-    term_colors = true, -- Change terminal color as per the selected theme style
-    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-    -- toggle theme style ---
-    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
-
-    -- Change code style ---
-    -- Options are italic, bold, underline, none
-    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
-    code_style = {
-        comments = 'italic',
-        keywords = 'italic',
-        -- functions = 'italic,bold',
-        functions = 'italic',
-        strings = 'none',
-        variables = 'none'
-    },
-
-    -- Lualine options --
-    lualine = {
-        transparent = true, -- lualine center bar transparency
-    },
-
-    -- Custom Highlights --
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override highlight groups
-
-    -- Plugins Config --
-    diagnostics = {
-        darker = true, -- darker colors for diagnostic
-        undercurl = true,   -- use undercurl instead of underline for diagnostics
-		underline = false,
-        background = false,    -- use background color for virtual text
-    },
-}
-
--- lvim.colorscheme = "onedark"
--- require('onedark').load()
-
--------------
--- GRUVBOX --
--------------
-require('gruvbox').setup({
-	undercurl = true,
-	underline = true,
-	bold = false,
-	italic = true,
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	contrast = "hard", -- can be "hard", "soft" or empty string
-	-- contrast = "", -- can be "hard", "soft" or empty string
-	palette_overrides = {},
-	overrides = {},
-	dim_inactive = false,
-	transparent_mode = false,
-})
-lvim.colorscheme = "gruvbox"
 
 --------------
 -- MATERIAL --
@@ -297,24 +207,141 @@ vim.g.material_style = "darker"
 -- lvim.colorscheme = "material"
 
 
+-------------
+-- ONEDARK --
+-------------
+require('onedark').setup  {
+    -- Main options --
+    -- style = 'cool',
+    -- style = 'deep',
+    -- style = 'dark',
+    -- style = 'darker',
+    -- style = 'warm',
+    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'italic',
+        -- functions = 'italic,bold',
+        functions = 'italic',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = true, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+		underline = false,
+        background = false,    -- use background color for virtual text
+    },
+}
+
+-- lvim.colorscheme = "onedark"
+-- require('onedark').load()
+
+
+-------------
+-- GRUVBOX --
+-------------
+require('gruvbox').setup({
+	undercurl = true,
+	underline = true,
+	bold = false,
+	italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	-- contrast = "hard", -- can be "hard", "soft" or empty string
+	contrast = "", -- can be "hard", "soft" or empty string
+	palette_overrides = {},
+	overrides = {},
+	dim_inactive = false,
+	transparent_mode = false,
+})
+
+lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "gruvboxed"
+-- lvim.colorscheme = "gruvbox-baby"
+
+------------------------
+-- COLORSCHEMES 	  --
+------------------------
+
+-- lvim.colorscheme = "vscode"
+-- lvim.colorscheme = "darkplus"
+-- lvim.colorscheme = "dracula"
+
+-- lvim.colorscheme = "kanagawa"
+-- lvim.colorscheme = "kyotonight"
+-- lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyodark"
+-- lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "edge"
+-- lvim.colorscheme = "doom-one"
+
+-- lvim.colorscheme = "nordfox"
+-- lvim.colorscheme = "nord"
+-- lvim.colorscheme = "onenord"
+-- lvim.colorscheme = "onedarker"
+-- lvim.colorscheme = "horizon"
+
+
 ------------------------
 -- ADDITIONAL PLUGINS --
 ------------------------
+
 lvim.plugins = {
+-- tokyo
 	{ "tiagovla/tokyodark.nvim" },
-	{ "Mofiqul/dracula.nvim" },
-	{ "marko-cerovac/material.nvim" },
-	{ "EdenEast/nightfox.nvim" },
-	{ "rmehri01/onenord.nvim" },
-	{ "sainnhe/gruvbox-material" },
+	{ "laniusone/kyotonight.vim" },
+
+-- vscode
 	{ "Mofiqul/vscode.nvim" },
 	{ "martinsione/darkplus.nvim" },
+
+	{ "Mofiqul/dracula.nvim" },
+	{ "sainnhe/edge" },
+	{ "NTBBloodbath/doom-one.nvim" },
+	{ "EdenEast/nightfox.nvim" },
 	{ "arcticicestudio/nord-vim" },
-	{ "almo7aya/neogruvbox.nvim" },
-	{ "laniusone/kyotonight.vim" },
-	{ "ellisonleao/gruvbox.nvim" },
+	{ "rmehri01/onenord.nvim" },
 	{ "navarasu/onedark.nvim" },
-	{ "olivercederborg/poimandres.nvim" },
+	{ "LunarVim/horizon.nvim" },
+	{ "marko-cerovac/material.nvim" },
+
+-- gruvbox
+	{ "ellisonleao/gruvbox.nvim" },
+	{ "luisiacc/gruvbox-baby" },
+	{ "CrispyBaccoon/gruvboxed" },
+	{ "sainnhe/gruvbox-material" },
+	{ "almo7aya/neogruvbox.nvim" },
+	{ "rebelot/kanagawa.nvim" },
+
+
 	{ "lukoshkin/trailing-whitespace" },
 	{ "p00f/nvim-ts-rainbow" },
 	{ "phaazon/mind.nvim" },
