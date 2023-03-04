@@ -3,8 +3,8 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 
 -- transparent_window
--- lvim.transparent_window = false
-lvim.transparent_window = true
+lvim.transparent_window = false
+-- lvim.transparent_window = true
 
 -- rainbow parentheses
 lvim.builtin.treesitter.rainbow.enable = true
@@ -12,7 +12,7 @@ lvim.builtin.treesitter.rainbow.enable = true
 -- status line
 -- lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.style = "lvim"
-lvim.builtin.lualine.options.theme = "gruvbox-material"
+-- lvim.builtin.lualine.options.theme = "gruvbox-material"
 -- lvim.builtin.lualine.options.theme = "iceberg_dark"
 -- lvim.builtin.lualine.options.theme = "horizon"
 -- lvim.builtin.lualine.options.theme = "onedark"
@@ -25,8 +25,8 @@ vim.opt.relativenumber = true
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- remove current line highlight
--- vim.opt.cursorline = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+-- vim.opt.cursorline = false
 
 -- Don't convert tabs to space
 vim.opt.expandtab = false
@@ -283,7 +283,7 @@ require('gruvbox').setup({
 	transparent_mode = false,
 })
 
-lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "gruvboxed"
 -- lvim.colorscheme = "gruvbox-baby"
 
@@ -301,7 +301,7 @@ lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "edge"
--- lvim.colorscheme = "doom-one"
+lvim.colorscheme = "doom-one"
 
 -- lvim.colorscheme = "nordfox"
 -- lvim.colorscheme = "nord"
