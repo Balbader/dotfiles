@@ -314,7 +314,7 @@ lvim.colorscheme = "tokyonight-night"
 
 
 ------------------------
--- ADDITIONAL PLUGINS --
+-- PLUGINS 			  --
 ------------------------
 
 lvim.plugins = {
@@ -343,7 +343,7 @@ lvim.plugins = {
 	{ "marko-cerovac/material.nvim" },
 
 
--- ADDITIONAL PLUGINS ------------------
+-- PLUGINS ----------------------------
 
 	{ "lukoshkin/trailing-whitespace" },
 	{ "p00f/nvim-ts-rainbow" },
