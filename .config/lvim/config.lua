@@ -119,6 +119,16 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- Linting / Formatting
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+-- 	{ command = "black" },
+-- 	{
+-- 		command = "prettier",
+-- 		filetypes = { "javascript", "typescript", "typescriptreact" },
+-- 	}
+-- }
+
 -- Diagnostics
 require'toggle_lsp_diagnostics'.init({ start_on = false })
 
@@ -284,7 +294,6 @@ require('gruvbox').setup({
 })
 
 -- lvim.colorscheme = "gruvbox"
--- lvim.colorscheme = "gruvboxed"
 -- lvim.colorscheme = "gruvbox-baby"
 
 ------------------------
@@ -292,19 +301,13 @@ require('gruvbox').setup({
 ------------------------
 
 -- lvim.colorscheme = "vscode"
--- lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "dracula"
 
--- lvim.colorscheme = "kanagawa"
--- lvim.colorscheme = "kyotonight"
--- lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
--- lvim.colorscheme = "edge"
-lvim.colorscheme = "doom-one"
+-- lvim.colorscheme = "doom-one"
 
--- lvim.colorscheme = "nordfox"
--- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "horizon"
@@ -315,32 +318,32 @@ lvim.colorscheme = "doom-one"
 ------------------------
 
 lvim.plugins = {
+
+-- COLORSCHEMES ---------------------
+
 -- tokyo
 	{ "tiagovla/tokyodark.nvim" },
-	{ "laniusone/kyotonight.vim" },
 
 -- vscode
 	{ "Mofiqul/vscode.nvim" },
 	{ "martinsione/darkplus.nvim" },
 
-	{ "Mofiqul/dracula.nvim" },
-	{ "sainnhe/edge" },
+-- one
 	{ "NTBBloodbath/doom-one.nvim" },
-	{ "EdenEast/nightfox.nvim" },
-	{ "arcticicestudio/nord-vim" },
 	{ "rmehri01/onenord.nvim" },
 	{ "navarasu/onedark.nvim" },
-	{ "LunarVim/horizon.nvim" },
-	{ "marko-cerovac/material.nvim" },
 
 -- gruvbox
 	{ "ellisonleao/gruvbox.nvim" },
 	{ "luisiacc/gruvbox-baby" },
-	{ "CrispyBaccoon/gruvboxed" },
 	{ "sainnhe/gruvbox-material" },
-	{ "almo7aya/neogruvbox.nvim" },
-	{ "rebelot/kanagawa.nvim" },
 
+-- extra colorscheme
+	{ "Mofiqul/dracula.nvim" },
+	{ "marko-cerovac/material.nvim" },
+
+
+-- ADDITIONAL PLUGINS ------------------
 
 	{ "lukoshkin/trailing-whitespace" },
 	{ "p00f/nvim-ts-rainbow" },
