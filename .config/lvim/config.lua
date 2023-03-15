@@ -209,7 +209,7 @@ require('material').setup({
 })
 
 -- vim.g.material_style = "deep ocean"
-vim.g.material_style = "darker"
+-- vim.g.material_style = "darker"
 -- vim.g.material_style = "lighter"
 -- vim.g.material_style = "oceanic"
 -- vim.g.material_style = "palenight"
@@ -267,8 +267,8 @@ require('onedark').setup  {
     },
 }
 
--- lvim.colorscheme = "onedark"
--- require('onedark').load()
+lvim.colorscheme = "onedark"
+require('onedark').load()
 
 
 -------------
@@ -303,14 +303,15 @@ require('gruvbox').setup({
 -- lvim.colorscheme = "vscode"
 -- lvim.colorscheme = "dracula"
 
-lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "doom-one"
 
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "onedarker"
--- lvim.colorscheme = "horizon"
+
+lvim.colorscheme = "falcon"
 
 
 ------------------------
@@ -341,6 +342,7 @@ lvim.plugins = {
 -- extra colorscheme
 	{ "Mofiqul/dracula.nvim" },
 	{ "marko-cerovac/material.nvim" },
+	{ "fenetikm/falcon" },
 
 
 -- PLUGINS ----------------------------
