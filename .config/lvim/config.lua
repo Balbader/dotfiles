@@ -14,7 +14,6 @@ lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lualine.style = "lvim"
 -- lvim.builtin.lualine.options.theme = "gruvbox-material"
 -- lvim.builtin.lualine.options.theme = "iceberg_dark"
--- lvim.builtin.lualine.options.theme = "horizon"
 -- lvim.builtin.lualine.options.theme = "onedark"
 
 -- set relativenumber
@@ -133,14 +132,14 @@ lvim.builtin.treesitter.highlight.enabled = true
 require'toggle_lsp_diagnostics'.init({ start_on = false })
 
 -- Mind
-require('mind').setup( {
-	  'phaazon/mind.nvim',
-	  branch = 'v2.2',
-	  requires = { 'nvim-lua/plenary.nvim' },
-	  config = function()
-		require'mind'.setup()
-	  end
-})
+-- require('mind').setup( {
+-- 	  'phaazon/mind.nvim',
+-- 	  branch = 'v2.2',
+-- 	  requires = { 'nvim-lua/plenary.nvim' },
+-- 	  config = function()
+-- 		require'mind'.setup()
+-- 	  end
+-- })
 
 -- trailing-whitespace
   require('trailing-whitespace').setup ({
@@ -152,81 +151,81 @@ require('mind').setup( {
 -------------
 -- ONEDARK --
 -------------
-require('onedark').setup  {
-    -- Main options --
-    -- style = 'cool',
-    -- style = 'deep',
-    -- style = 'dark',
-    -- style = 'darker',
-    -- style = 'warm',
-    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-    transparent = false,  -- Show/hide background
-    term_colors = true, -- Change terminal color as per the selected theme style
-    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+-- require('onedark').setup  {
+--     -- main options --
+--     -- style = 'cool',
+--     -- style = 'deep',
+--     style = 'dark',
+--     -- style = 'darker',
+--     -- style = 'warm',
+--     -- style = 'warmer', -- default theme style. choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+--     transparent = false,  -- show/hide background
+--     term_colors = true, -- change terminal color as per the selected theme style
+--     ending_tildes = false, -- show the end-of-buffer tildes. by default they are hidden
+--     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
-    -- toggle theme style ---
-    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+--     -- toggle theme style ---
+--     toggle_style_key = nil, -- keybind to toggle theme style. leave it nil to disable it, or set it to a string, for example "<leader>ts"
+--     toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- list of styles to toggle between
 
-    -- Change code style ---
-    -- Options are italic, bold, underline, none
-    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
-    code_style = {
-        comments = 'italic',
-        keywords = 'italic',
-        -- functions = 'italic,bold',
-        functions = 'italic',
-        strings = 'none',
-        variables = 'none'
-    },
+--     -- change code style ---
+--     -- options are italic, bold, underline, none
+--     -- you can configure multiple style with comma seperated, for e.g., keywords = 'italic,bold'
+--     code_style = {
+--         comments = 'italic',
+--         keywords = 'italic',
+--         -- functions = 'italic,bold',
+--         functions = 'italic',
+--         strings = 'none',
+--         variables = 'none'
+--     },
 
-    -- Lualine options --
-    lualine = {
-        transparent = true, -- lualine center bar transparency
-    },
+--     -- lualine options --
+--     lualine = {
+--         transparent = true, -- lualine center bar transparency
+--     },
 
-    -- Custom Highlights --
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override highlight groups
+--     -- custom highlights --
+--     colors = {}, -- override default colors
+--     highlights = {}, -- override highlight groups
 
-    -- Plugins Config --
-    diagnostics = {
-        darker = true, -- darker colors for diagnostic
-        undercurl = true,   -- use undercurl instead of underline for diagnostics
-		underline = false,
-        background = false,    -- use background color for virtual text
-    },
-}
+--     -- plugins config --
+--     diagnostics = {
+--         darker = true, -- darker colors for diagnostic
+--         undercurl = true,   -- use undercurl instead of underline for diagnostics
+-- 		underline = false,
+--         background = false,    -- use background color for virtual text
+--     },
+-- }
 
-lvim.colorscheme = "onedark"
-require('onedark').load()
+-- lvim.colorscheme = "onedark"
+-- require('onedark').load()
 
 
 -------------
 -- GRUVBOX --
 -------------
-require('gruvbox').setup({
-	undercurl = true,
-	underline = true,
-	bold = false,
-	italic = true,
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	-- contrast = "hard", -- can be "hard", "soft" or empty string
-	contrast = "", -- can be "hard", "soft" or empty string
-	palette_overrides = {},
-	overrides = {},
-	dim_inactive = false,
-	transparent_mode = false,
-})
+-- require('gruvbox').setup({
+-- 	undercurl = true,
+-- 	underline = true,
+-- 	bold = false,
+-- 	-- italic = true,
+-- 	strikethrough = true,
+-- 	invert_selection = false,
+-- 	invert_signs = false,
+-- 	invert_tabline = false,
+-- 	invert_intend_guides = false,
+-- 	-- inverse = true, -- invert background for search, diffs, statuslines and errors
+-- 	contrast = "hard", -- can be "hard", "soft" or empty string
+-- 	-- contrast = "", -- can be "hard", "soft" or empty string
+-- 	palette_overrides = {},
+-- 	overrides = {},
+-- 	dim_inactive = false,
+-- 	transparent_mode = false,
+-- })
 
 -- lvim.colorscheme = "gruvbox"
--- lvim.colorscheme = "gruvbox-baby"
+-- lvim.colorscheme = "gruvbox-material"
 
 ------------------------
 -- COLORSCHEMES 	  --
@@ -238,12 +237,12 @@ require('gruvbox').setup({
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
--- lvim.colorscheme = "doom-one"
+lvim.colorscheme = "doom-one"
 
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "onedarker"
 
-lvim.colorscheme = "falcon"
+-- lvim.colorscheme = "falcon"
 
 
 ------------------------
@@ -268,7 +267,6 @@ lvim.plugins = {
 
 -- gruvbox
 	{ "ellisonleao/gruvbox.nvim" },
-	{ "luisiacc/gruvbox-baby" },
 	{ "sainnhe/gruvbox-material" },
 
 -- extra colorscheme
@@ -279,35 +277,35 @@ lvim.plugins = {
 -- PLUGINS ----------------------------
 
 	{ "lukoshkin/trailing-whitespace" },
-	{ "p00f/nvim-ts-rainbow" },
-	{ "phaazon/mind.nvim" },
+	-- { "p00f/nvim-ts-rainbow" },
+	-- { "phaazon/mind.nvim" },
 	{ "stevearc/dressing.nvim" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
-	{ "norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
-				RGB = true, -- #RGB hex codes
-				RRGGBB = true, -- #RRGGBB hex codes
-				RRGGBBAA = true, -- #RRGGBBAA hex codes
-				rgb_fn = true, -- CSS rgb() and rgba() functions
-				hsl_fn = true, -- CSS hsl() and hsla() functions
-				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-			})
-		end,
-	},
+	-- { "norcalli/nvim-colorizer.lua",
+	-- 	config = function()
+	-- 		require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
+	-- 			RGB = true, -- #RGB hex codes
+	-- 			RRGGBB = true, -- #RRGGBB hex codes
+	-- 			RRGGBBAA = true, -- #RRGGBBAA hex codes
+	-- 			rgb_fn = true, -- CSS rgb() and rgba() functions
+	-- 			hsl_fn = true, -- CSS hsl() and hsla() functions
+	-- 			css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+	-- 			css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"folke/lsp-colors.nvim",
 		event = "BufRead",
 	},
-	{
-	  "npxbr/glow.nvim",
-	  ft = {"markdown"},
-	  -- run = "yay -S glow"
-	},
+	-- {
+	--   "npxbr/glow.nvim",
+	--   ft = {"markdown"},
+	--   -- run = "yay -S glow"
+	-- },
 	{
 		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
 	}
