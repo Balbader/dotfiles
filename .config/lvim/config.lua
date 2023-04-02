@@ -1,4 +1,4 @@
--- general
+-- - general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
@@ -14,6 +14,7 @@ lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lualine.style = "lvim"
 -- lvim.builtin.lualine.options.theme = "gruvbox-material"
 -- lvim.builtin.lualine.options.theme = "iceberg_dark"
+-- lvim.builtin.lualine.options.theme = "horizon"
 -- lvim.builtin.lualine.options.theme = "onedark"
 
 -- set relativenumber
@@ -118,16 +119,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- Linting / Formatting
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
--- 	{ command = "black" },
--- 	{
--- 		command = "prettier",
--- 		filetypes = { "javascript", "typescript", "typescriptreact" },
--- 	}
--- }
-
 -- Diagnostics
 require'toggle_lsp_diagnostics'.init({ start_on = false })
 
@@ -152,25 +143,25 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 -- ONEDARK --
 -------------
 -- require('onedark').setup  {
---     -- main options --
+--     -- Main options --
 --     -- style = 'cool',
 --     -- style = 'deep',
---     style = 'dark',
+--     -- style = 'dark',
 --     -- style = 'darker',
 --     -- style = 'warm',
---     -- style = 'warmer', -- default theme style. choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
---     transparent = false,  -- show/hide background
---     term_colors = true, -- change terminal color as per the selected theme style
---     ending_tildes = false, -- show the end-of-buffer tildes. by default they are hidden
+--     style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+--     transparent = false,  -- Show/hide background
+--     term_colors = true, -- Change terminal color as per the selected theme style
+--     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 --     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
 --     -- toggle theme style ---
---     toggle_style_key = nil, -- keybind to toggle theme style. leave it nil to disable it, or set it to a string, for example "<leader>ts"
---     toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- list of styles to toggle between
+--     toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+--     toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
 
---     -- change code style ---
---     -- options are italic, bold, underline, none
---     -- you can configure multiple style with comma seperated, for e.g., keywords = 'italic,bold'
+--     -- Change code style ---
+--     -- Options are italic, bold, underline, none
+--     -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
 --     code_style = {
 --         comments = 'italic',
 --         keywords = 'italic',
@@ -180,16 +171,16 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 --         variables = 'none'
 --     },
 
---     -- lualine options --
+--     -- Lualine options --
 --     lualine = {
 --         transparent = true, -- lualine center bar transparency
 --     },
 
---     -- custom highlights --
---     colors = {}, -- override default colors
---     highlights = {}, -- override highlight groups
+--     -- Custom Highlights --
+--     colors = {}, -- Override default colors
+--     highlights = {}, -- Override highlight groups
 
---     -- plugins config --
+--     -- Plugins Config --
 --     diagnostics = {
 --         darker = true, -- darker colors for diagnostic
 --         undercurl = true,   -- use undercurl instead of underline for diagnostics
@@ -201,6 +192,62 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 -- lvim.colorscheme = "onedark"
 -- require('onedark').load()
 
+--------------
+--  NORDIC  --
+--------------
+require('nordic').setup({
+    -- Available themes: 'nordic', 'onedark'.
+    -- Onedark is WIP.
+    -- theme = 'nordic',
+    theme = 'onedark',
+    -- Enable bold keywords.
+    bold_keywords = true,
+    -- bold_keywords = false,
+    -- Enable italic comments.
+    italic_comments = true,
+    -- Enable general editor background transparency.
+    transparent_bg = false,
+    -- Nordic specific options.
+    -- Set all to false to use original Nord colors.
+    -- Adjusts some colors to make the theme a bit nicer (imo).
+    nordic = {
+        -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+        reduced_blue = true,
+        -- reduced_blue = false,
+    },
+    -- Onedark specific options.
+    -- Set all to false to keep original onedark colors.
+    -- Adjusts some colors to make the theme a bit nicer (imo).
+    -- WIP.
+    onedark = {
+        -- Brighten the whites to fit the theme better.
+        brighter_whites = true,
+    },
+    -- Override the styling of any highlight group.
+    override = {},
+    cursorline = {
+        -- Enable bold font in cursorline.
+        bold = false,
+        -- Avialable styles: 'dark', 'light'.
+        theme = 'dark',
+        -- theme = 'light',
+        -- Hide the cursorline when the window is not focused.
+        hide_unfocused = false,
+        -- hide_unfocused = true,
+    },
+    noice = {
+        -- Available styles: `classic`, `flat`.
+        style = 'classic',
+    },
+    telescope = {
+        -- Available styles: `classic`, `flat`.
+        style = 'flat',
+    },
+    leap = {
+        -- Dims the backdrop when using leap.
+        dim_backdrop = false,
+    },
+})
 
 -------------
 -- GRUVBOX --
@@ -215,7 +262,7 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 -- 	invert_signs = false,
 -- 	invert_tabline = false,
 -- 	invert_intend_guides = false,
--- 	-- inverse = true, -- invert background for search, diffs, statuslines and errors
+-- 	inverse = true, -- invert background for search, diffs, statuslines and errors
 -- 	contrast = "hard", -- can be "hard", "soft" or empty string
 -- 	-- contrast = "", -- can be "hard", "soft" or empty string
 -- 	palette_overrides = {},
@@ -225,11 +272,14 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 -- })
 
 -- lvim.colorscheme = "gruvbox"
--- lvim.colorscheme = "gruvbox-material"
+-- lvim.colorscheme = "gruvbox-baby"
 
 ------------------------
 -- COLORSCHEMES 	  --
 ------------------------
+
+-- lvim.colorscheme = "OceanicNext"
+lvim.colorscheme = "nordic"
 
 -- lvim.colorscheme = "vscode"
 -- lvim.colorscheme = "dracula"
@@ -237,21 +287,25 @@ require'toggle_lsp_diagnostics'.init({ start_on = false })
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
-lvim.colorscheme = "doom-one"
+-- lvim.colorscheme = "doom-one"
 
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "onedarker"
+-- lvim.colorscheme = "onedark"
 
 -- lvim.colorscheme = "falcon"
 
-
 ------------------------
--- PLUGINS 			  --
+-- ADDITIONAL PLUGINS --
 ------------------------
 
 lvim.plugins = {
 
--- COLORSCHEMES ---------------------
+-- oceanic-next
+	{"mhartington/oceanic-next"},
+
+-- nordic
+	{"AlexvZyl/nordic.nvim"},
 
 -- tokyo
 	{ "tiagovla/tokyodark.nvim" },
@@ -267,47 +321,29 @@ lvim.plugins = {
 
 -- gruvbox
 	{ "ellisonleao/gruvbox.nvim" },
+	{ "luisiacc/gruvbox-baby" },
 	{ "sainnhe/gruvbox-material" },
 
 -- extra colorscheme
 	{ "Mofiqul/dracula.nvim" },
 	{ "fenetikm/falcon" },
 
-
 -- PLUGINS ----------------------------
 
 	{ "lukoshkin/trailing-whitespace" },
-	-- { "p00f/nvim-ts-rainbow" },
-	-- { "phaazon/mind.nvim" },
+	{ "p00f/nvim-ts-rainbow" },
+	{ "phaazon/mind.nvim" },
 	{ "stevearc/dressing.nvim" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
-	-- { "norcalli/nvim-colorizer.lua",
-	-- 	config = function()
-	-- 		require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
-	-- 			RGB = true, -- #RGB hex codes
-	-- 			RRGGBB = true, -- #RRGGBB hex codes
-	-- 			RRGGBBAA = true, -- #RRGGBBAA hex codes
-	-- 			rgb_fn = true, -- CSS rgb() and rgba() functions
-	-- 			hsl_fn = true, -- CSS hsl() and hsla() functions
-	-- 			css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-	-- 			css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"folke/lsp-colors.nvim",
 		event = "BufRead",
 	},
-	-- {
-	--   "npxbr/glow.nvim",
-	--   ft = {"markdown"},
-	--   -- run = "yay -S glow"
-	-- },
 	{
 		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
 	}
 }
---   end,
+--end,
