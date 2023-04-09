@@ -250,36 +250,51 @@ require('nordic').setup({
 })
 
 -------------
--- GRUVBOX --
+-- GRUVBOx --
 -------------
--- require('gruvbox').setup({
--- 	undercurl = true,
--- 	underline = true,
--- 	bold = false,
--- 	-- italic = true,
--- 	strikethrough = true,
--- 	invert_selection = false,
--- 	invert_signs = false,
--- 	invert_tabline = false,
--- 	invert_intend_guides = false,
--- 	inverse = true, -- invert background for search, diffs, statuslines and errors
--- 	contrast = "hard", -- can be "hard", "soft" or empty string
--- 	-- contrast = "", -- can be "hard", "soft" or empty string
--- 	palette_overrides = {},
--- 	overrides = {},
--- 	dim_inactive = false,
--- 	transparent_mode = false,
--- })
+require('gruvbox').setup({
+	undercurl = true,
+	underline = true,
+	bold = false,
+	-- italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	contrast = "hard", -- can be "hard", "soft" or empty string
+	-- contrast = "", -- can be "hard", "soft" or empty string
+	palette_overrides = {},
+	overrides = {},
+	dim_inactive = false,
+	transparent_mode = false,
+})
 
 -- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "gruvbox-baby"
+
+-------------
+--  NORD   --
+-------------
+
+-- require('nord').setup({
+-- 	nord_contrast = true,
+-- 	nord_borders = true,
+-- 	nord_disable_background = false,
+-- 	nord_intalic = true,
+-- 	nord_uniform_diff_background = true,
+-- 	nord_bold = false,
+-- })
 
 ------------------------
 -- COLORSCHEMES 	  --
 ------------------------
 
 -- lvim.colorscheme = "OceanicNext"
-lvim.colorscheme = "nordic"
+-- lvim.colorscheme = "minimal"
+-- lvim.colorscheme = "minimal-base16"
+lvim.colorscheme = "juliana"
 
 -- lvim.colorscheme = "vscode"
 -- lvim.colorscheme = "dracula"
@@ -289,9 +304,12 @@ lvim.colorscheme = "nordic"
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "doom-one"
 
+-- lvim.colorscheme = "nordic"
+-- lvim.colorscheme = "nord"
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "nordic"
 
 -- lvim.colorscheme = "falcon"
 
@@ -300,6 +318,15 @@ lvim.colorscheme = "nordic"
 ------------------------
 
 lvim.plugins = {
+
+-- juliana
+	{"kaiuri/nvim-juliana"},
+
+-- minimal
+	{"yazeed1s/minimal.nvim"},
+
+-- nord
+	{"shaunsingh/nord.nvim"},
 
 -- oceanic-next
 	{"mhartington/oceanic-next"},
