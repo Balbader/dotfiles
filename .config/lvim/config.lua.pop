@@ -125,118 +125,119 @@ lvim.builtin.treesitter.highlight.enabled = true
 -------------
 -- ONEDARK --
 -------------
--- require('onedark').setup  {
---     -- Main options --
---     -- style = 'light',
---     -- style = 'cool',
---     -- style = 'deep',
---     -- style = 'dark',
---     style = 'darker',
---     -- style = 'warm',
---     -- style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
---     transparent = false,  -- Show/hide background
---     term_colors = true, -- Change terminal color as per the selected theme style
---     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
---     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+require('onedark').setup {
+	-- main options --
+	-- style = 'cool',
+	-- style = 'deep',
+	style = 'dark',
+	-- style = 'darker',
+	-- style = 'warm',
+	-- style = 'warmer', -- default theme style. choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+	transparent = false,       -- show/hide background
+	term_colors = true,        -- change terminal color as per the selected theme style
+	-- ending_tildes = true, -- show the end-of-buffer tildes. by default they are hidden
+	ending_tildes = false,     -- show the end-of-buffer tildes. by default they are hidden
+	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
---     -- toggle theme style ---
---     toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
---     toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+	-- toggle theme style ---
+	toggle_style_key = nil,                                                           -- keybind to toggle theme style. leave it nil to disable it, or set it to a string, for example "<leader>ts"
+	toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- list of styles to toggle between
 
---     -- Change code style ---
---     -- Options are italic, bold, underline, none
---     -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
---     code_style = {
---         comments = 'italic',
---         keywords = 'italic',
---         -- functions = 'italic,bold',
---         functions = 'italic',
---         strings = 'none',
---         variables = 'none'
---     },
+	-- change code style ---
+	-- options are italic, bold, underline, none
+	-- you can configure multiple style with comma seperated, for e.g., keywords = 'italic,bold'
+	code_style = {
+		comments = 'italic',
+		keywords = 'italic',
+		-- functions = 'italic,bold',
+		functions = 'italic',
+		strings = 'none',
+		variables = 'none'
+	},
 
---     -- Lualine options --
---     lualine = {
---         transparent = true, -- lualine center bar transparency
---     },
+	-- lualine options --
+	lualine = {
+		transparent = true, -- lualine center bar transparency
+	},
 
---     -- Custom Highlights --
---     colors = {}, -- Override default colors
---     highlights = {}, -- Override highlight groups
+	-- custom highlights --
+	colors = {},  -- override default colors
+	highlights = {}, -- override highlight groups
 
---     -- Plugins Config --
---     diagnostics = {
---         darker = true, -- darker colors for diagnostic
---         undercurl = true,   -- use undercurl instead of underline for diagnostics
--- 		underline = false,
---         background = false,    -- use background color for virtual text
---     },
--- }
+	-- plugins config --
+	diagnostics = {
+		darker = true, -- darker colors for diagnostic
+		undercurl = true, -- use undercurl instead of underline for diagnostics
+		underline = false,
+		background = false, -- use background color for virtual text
+	},
+}
 
--- require('onedark').load()
+lvim.colorscheme = "onedark"
+require('onedark').load()
 
-------------
--- NORDIC --
-------------
--- require('nordic').setup({
---     -- Available themes: 'nordic', 'onedark'.
---     -- Onedark is WIP.
---     -- theme = 'nordic',
---     theme = 'onedark',
---     -- Enable bold keywords.
---     bold_keywords = true,
---     -- bold_keywords = false,
---     -- Enable italic comments.
---     italic_comments = true,
---     -- Enable general editor background transparency.
---     transparent_bg = false,
---     -- Nordic specific options.
---     -- Set all to false to use original Nord colors.
---     -- Adjusts some colors to make the theme a bit nicer (imo).
---     nordic = {
---         -- Reduce the overall amount of blue in the theme (diverges from base Nord).
---         reduced_blue = true,
---         -- reduced_blue = false,
---     },
---     -- Onedark specific options.
---     -- Set all to false to keep original onedark colors.
---     -- Adjusts some colors to make the theme a bit nicer (imo).
---     -- WIP.
---     onedark = {
---         -- Brighten the whites to fit the theme better.
---         brighter_whites = true,
---     },
---     -- Override the styling of any highlight group.
---     override = {},
---     cursorline = {
---         -- Enable bold font in cursorline.
---         bold = false,
---         -- Avialable styles: 'dark', 'light'.
---         theme = 'dark',
---         -- theme = 'light',
---         -- Hide the cursorline when the window is not focused.
---         hide_unfocused = false,
---         -- hide_unfocused = true,
---     },
---     noice = {
---         -- Available styles: `classic`, `flat`.
---         style = 'classic',
---     },
---     telescope = {
---         -- Available styles: `classic`, `flat`.
---         style = 'flat',
---     },
---     leap = {
---         -- Dims the backdrop when using leap.
---         dim_backdrop = false,
---     },
--- })
+--------------
+--  NORDIC  --
+--------------
+require('nordic').setup({
+	-- Available themes: 'nordic', 'onedark'.
+	-- Onedark is WIP.
+	theme = 'nordic',
+	-- theme = 'onedark',
+	-- Enable bold keywords.
+	bold_keywords = true,
+	-- bold_keywords = false,
+	-- Enable italic comments.
+	italic_comments = true,
+	-- Enable general editor background transparency.
+	-- transparent_bg = false,
+	transparent_bg = true,
+	-- Nordic specific options.
+	-- Set all to false to use original Nord colors.
+	-- Adjusts some colors to make the theme a bit nicer (imo).
+	nordic = {
+		-- Reduce the overall amount of blue in the theme (diverges from base Nord).
+		reduced_blue = true,
+		-- reduced_blue = false,
+	},
+	-- Onedark specific options.
+	-- Set all to false to keep original onedark colors.
+	-- Adjusts some colors to make the theme a bit nicer (imo).
+	-- WIP.
+	onedark = {
+		-- Brighten the whites to fit the theme better.
+		brighter_whites = true,
+	},
+	-- Override the styling of any highlight group.
+	override = {},
+	cursorline = {
+		-- Enable bold font in cursorline.
+		bold = false,
+		-- Avialable styles: 'dark', 'light'.
+		theme = 'dark',
+		-- theme = 'light',
+		-- Hide the cursorline when the window is not focused.
+		hide_unfocused = false,
+		-- hide_unfocused = true,
+	},
+	noice = {
+		-- Available styles: `classic`, `flat`.
+		style = 'classic',
+	},
+	telescope = {
+		-- Available styles: `classic`, `flat`.
+		style = 'flat',
+	},
+	leap = {
+		-- Dims the backdrop when using leap.
+		dim_backdrop = false,
+	},
+})
 
 -------------
 -- GRUVBOX --
 -------------
 require('gruvbox').setup({
-	-- background = light,
 	undercurl = true,
 	underline = true,
 	bold = false,
@@ -246,7 +247,7 @@ require('gruvbox').setup({
 	invert_signs = false,
 	invert_tabline = false,
 	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
+	-- inverse = true, -- invert background for search, diffs, statuslines and errors
 	contrast = "hard", -- can be "hard", "soft" or empty string
 	-- contrast = "", -- can be "hard", "soft" or empty string
 	palette_overrides = {},
@@ -255,175 +256,141 @@ require('gruvbox').setup({
 	transparent_mode = false,
 })
 
----------------
--- ROSE PINE --
----------------
--- require('rose-pine').setup({
--- 	dark_variant = 'moon',
--- })
+----------------------
+-- GRUVBOX MATERIAL --
+----------------------
+require('everblush').setup({
+	-- Set transparent background
+	-- transparent_background = false,
+	transparent_background = true,
+})
+
+-----------------
+-- MONOKAI-PRO --
+-----------------
+require("monokai-pro").setup({
+	transparent_background = true,
+	terminal_colors = true,
+	devicons = true, -- highlight the icons of `nvim-web-devicons`
+	styles = {
+		comment = { italic = true },
+		keyword = { italic = true }, -- any other keyword
+		type = { italic = true },    -- (preferred) int, long, char, etc
+		storageclass = { italic = true }, -- static, register, volatile, etc
+		structure = { italic = true }, -- struct, union, enum, etc
+		parameter = { italic = true }, -- parameter pass in function
+		annotation = { italic = true },
+		tag_attribute = { italic = true }, -- attribute of tag in reactjs
+	},
+	filter = "spectrum",             -- classic | octagon | pro | machine | ristretto | spectrum
+	-- Enable this will disable filter option
+	day_night = {
+		enable = false,      -- turn off by default
+		day_filter = "pro",  -- classic | octagon | pro | machine | ristretto | spectrum
+		night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+	},
+	inc_search = "background", -- underline | background
+	background_clear = {
+		-- "float_win",
+		"toggleterm",
+		"telescope",
+		-- "which-key",
+		"renamer",
+		"notify",
+	}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+	plugins = {
+		bufferline = {
+			underline_selected = false,
+			underline_visible = false,
+		},
+		indent_blankline = {
+			context_highlight = "default", -- default | pro
+			context_start_underline = false,
+		},
+	},
+	---@param c Colorscheme
+	override = function(c)
+	end,
+})
 
 ------------------
 -- COLORSCHEMES --
 ------------------
 
--------------
--- GRUVBOX --
--------------
--- lvim.colorscheme = "gruvbox-tj"
 -- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "gruvbox-material"
--- lvim.colorscheme = "gruvdark"
--- lvim.colorscheme = "gruvbox8"
 
---------------
--- NIGHTFOX --
---------------
+-- lvim.colorscheme = "nordic"
+-- lvim.colorscheme = "onenord"
+-- lvim.colorscheme = "nordfox"
+
 -- lvim.colorscheme = "nightfox"
--- lvim.colorscheme = "dayfox"
--- lvim.colorscheme = "dawnfox"
 -- lvim.colorscheme = "duskfox"
 -- lvim.colorscheme = "terafox"
 -- lvim.colorscheme = "carbonfox"
 
--------------
--- MINIMAL --
--------------
--- lvim.colorscheme = "no-clown-fiesta"
--- lvim.colorscheme = "monochrome"
--- lvim.colorscheme = "miasma"
--- lvim.colorscheme = "falcon"
--- lvim.colorscheme = "atlas"
--- lvim.colorscheme = "meh"
--- lvim.colorscheme = "mies"
+-- lvim.colorscheme = "vscode"
 
-------------
--- VSCODE --
-------------
-lvim.colorscheme = "vscode"
--- lvim.colorscheme = "darkplus"
-
------------
--- TOKYO --
------------
+-- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyodark"
--- lvim.colorscheme = "tokyonight-storm"
 -- lvim.colorscheme = "lunar"
 
-----------
--- NORD --
-----------
--- lvim.colorscheme = "nordic"
--- lvim.colorscheme = "nord"
--- lvim.colorscheme = "onenord"
--- lvim.colorscheme = "nordfox"
-
----------
--- ONE --
----------
--- lvim.colorscheme = "one"
--- lvim.colorscheme = "onedark"
--- lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "doom-one"
+-- lvim.colorscheme = "onedarker"
+-- lvim.colorscheme = "onedark"
 
------------
--- OTHER --
------------
--- lvim.colorscheme = "ayu"
--- lvim.colorscheme = "poimandres"
--- lvim.colorscheme = "OceanicNext"
--- lvim.colorscheme = "oceanic_material"
--- lvim.colorscheme = "dracula"
+-- lvim.colorscheme = "monokai-pro"
+-- lvim.colorscheme = "midnight"
+lvim.colorscheme = "everblush"
 
-------------
--- HEROES --
-------------
--- lvim.colorscheme = "ironman_dark"
--- lvim.colorscheme = "batman"
--- lvim.colorscheme = "darkmatrix"
 
 ------------------------
--- ADDITIONAL PLUGINS --
+-- PLUGINS 			  --
 ------------------------
 
 lvim.plugins = {
 
--- jimbothemes
-	{"i3d/vim-jimbothemes"},
+	-- COLORSCHEMES ---------------------
 
--- mies
-	{"jaredgorski/Mies.vim"},
+	-- vim humanoid
+	-- { "humanoid-colors/vim-humanoid-colorscheme" },
 
--- vim-colors-meh
-	{"davidosomething/vim-colors-meh"},
+	-- midnight3
+	{ "dasupradyumna/midnight.nvim" },
 
--- atlas
-	{"huyvohcmc/atlas.vim"},
+	-- everblush
+	{ "Everblush/nvim" },
 
--- no-clown-fiesta
-	{"aktersnurra/no-clown-fiesta.nvim"},
+	-- nightfox
+	{ "EdenEast/nightfox.nvim" },
 
--- monochrome
-	{"kdheepak/monochrome.nvim"},
+	-- nordic
+	{ "AlexvZyl/nordic.nvim" },
 
--- nightfox
-	{"EdenEast/nightfox.nvim"},
-
--- miasma
-	{"xero/miasma.nvim"},
-
--- tokyonight
-	{"folke/tokyonight.nvim"},
-
--- neovim-ayu
-	{"Shatur/neovim-ayu"},
-
--- poimandres
-	{"olivercederborg/poimandres.nvim"},
-
--- nord
-	{"shaunsingh/nord.nvim"},
-
--- oceanic-next
-	{"mhartington/oceanic-next"},
-
--- oceanic-material
-	{"nvimdev/oceanic-material"},
-
--- nordic
-	{"AlexvZyl/nordic.nvim"},
-
--- tokyo
+	-- tokyo
 	{ "tiagovla/tokyodark.nvim" },
 
--- vscode
+	-- vscode
 	{ "Mofiqul/vscode.nvim" },
 	{ "martinsione/darkplus.nvim" },
 
--- one
+	-- one
 	{ "NTBBloodbath/doom-one.nvim" },
 	{ "rmehri01/onenord.nvim" },
 	{ "navarasu/onedark.nvim" },
-	{ "rakr/vim-one" },
 
--- gruvbox
+	-- gruvbox
 	{ "ellisonleao/gruvbox.nvim" },
 	{ "sainnhe/gruvbox-material" },
-	{ "sheldonldev/vim-gruvdark" },
-	{ "lifepillar/vim-gruvbox8" },
-	{ "tjdevries/gruvbox-tj" },
 
--- extra colorscheme
-	{ "Mofiqul/dracula.nvim" },
+	-- extra colorscheme
+	{ "loctvl842/monokai-pro.nvim" },
 	{ "fenetikm/falcon" },
 
--------------
--- PLUGINS --
--------------
 
--- colorbuddy
-	{ "tjdevries/colorbuddy.nvim" },
-	-- { "p00f/nvim-ts-rainbow" },
-	{ "stevearc/dressing.nvim" },
+	-- PLUGINS ----------------------------
+
+	-- { "lukoshkin/trailing-whitespace" },
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
@@ -432,6 +399,9 @@ lvim.plugins = {
 		"folke/lsp-colors.nvim",
 		event = "BufRead",
 	},
-	{ "ryanoasis/vim-devicons" },
+	{
+		"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+	}
 }
---end,
+
+--   end,
