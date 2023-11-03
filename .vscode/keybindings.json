@@ -55,3 +55,42 @@
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
     }
 ]
+
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "shift+alt+z",
+        "command": "workbench.action.toggleZenMode"
+    },
+
+    // Na>vigate between editor and terminal
+    {
+        "key":     "ctrl+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key":     "ctrl+g",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key":     "ctrl+g",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when":    "terminalFocus"
+    },
+
+      // Navigate open Editors
+      {
+        "key": "alt+[",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "alt+]",
+        "command": "workbench.action.nextEditor"
+    },
+
+    // Open / Close Sidebar
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+]
