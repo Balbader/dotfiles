@@ -692,7 +692,7 @@ lvim.plugins = {
   { "askfiy/visual_studio_code" },
 
   -- one
-  { "NTBBloodbath/doom-one.nvim" },
+  -- { "NTBBloodbath/doom-one.nvim" },
   { "rmehri01/onenord.nvim" },
   { "navarasu/onedark.nvim" },
 
