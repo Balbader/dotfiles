@@ -197,6 +197,8 @@ require('todo-comments').setup({
   },
 })
 
+
+----------------------------------------------------------- COLORSCHEMES SETUPS
 -------------
 -- ONEDARK --
 -------------
@@ -541,7 +543,7 @@ require("bluloco").setup({
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  style = "night",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "dark",         -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day",    -- The theme is used when the background is set to light
   transparent = false,    -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
@@ -614,10 +616,8 @@ vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
 vim.g.gruvbox_material_statusline_style = 'default'
 vim.g.gruvbox_material_better_performance = 1
 
-------------------
--- COLORSCHEMES --
-------------------
---
+
+------------------------------------------------------------------ COLORSCHEMES
 -- lvim.colorscheme = "bamboo"
 -- lvim.colorscheme = "everblush"
 -- lvim.colorscheme = "monokai-pro"
@@ -625,6 +625,7 @@ vim.g.gruvbox_material_better_performance = 1
 -- lvim.colorscheme = "solarized-osaka"
 -- lvim.colorscheme = "noctis"
 -- lvim.colorscheme = "cobalt2"
+lvim.colorscheme = "darcula-solid"
 
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "nordfox"
@@ -643,7 +644,7 @@ vim.g.gruvbox_material_better_performance = 1
 -- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "gruvbox-material"
 
-lvim.colorscheme = "tokyonight-night"
+-- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "tokyonight-moon"
 -- lvim.colorscheme = "tokyodark"
 -- lvim.colorscheme = "lunar"
@@ -656,7 +657,10 @@ lvim.colorscheme = "tokyonight-night"
 
 lvim.plugins = {
 
-  -- COLORSCHEMES ---------------------
+  ---------------------------------------------------------------- COLORSCHEMES
+
+  -- dracula-solid
+  { "santos-gabriel-dario/darcula-solid.nvim" },
 
   -- noctis
   { "kartikp10/noctis.nvim" },
@@ -704,7 +708,7 @@ lvim.plugins = {
   { "fenetikm/falcon" },
 
 
-  -- PLUGINS ----------------------------
+  --------------------------------------------------------------------- PLUGINS
 
   -- { "lukoshkin/trailing-whitespace" },
   {
@@ -726,6 +730,14 @@ lvim.plugins = {
   },
   {
     "rktjmp/lush.nvim",
+  },
+
+  ------------------------------------------------------------------- DEBUGGING
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
   },
 }
 -- end,
