@@ -3,8 +3,8 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 -- transparent_window
-lvim.transparent_window = false
--- lvim.transparent_window = true
+-- lvim.transparent_window = false
+lvim.transparent_window = true
 
 -- rainbow parentheses
 lvim.builtin.treesitter.rainbow.enable = true
@@ -310,8 +310,8 @@ require("monokai-pro").setup({
 --------------
 require('nordic').setup({
 
-  theme = 'nordic',
-  -- theme = 'onedark',
+  -- theme = 'nordic',
+  theme = 'onedark',
 
   bold_keywords = true,
   italic_comments = true,
@@ -381,8 +381,8 @@ require('visual_studio_code').setup({
   -- Whether to load all color schemes
   preset = true,
   -- Whether to enable background transparency
-  -- transparent = false,
-  transparent = true,
+  transparent = false,
+  -- transparent = true,
   -- Whether to apply the adapted plugin
   expands = {
     hop = true,
@@ -422,7 +422,7 @@ require('nightfox').setup({
     -- Compiled file's destination location
     compile_path = vim.fn.stdpath("cache") .. "/nightfox",
     compile_file_suffix = "_compiled", -- Compiled file suffix
-    transparent = true,                -- Disable setting background
+    transparent = false,               -- Disable setting background
     terminal_colors = true,            -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
     dim_inactive = false,              -- Non focused panes set to alternative background
     module_default = true,             -- Default enable value for modules
@@ -624,7 +624,6 @@ vim.g.gruvbox_material_better_performance = 1
 -- lvim.colorscheme = "nightfox"
 -- lvim.colorscheme = "solarized-osaka"
 -- lvim.colorscheme = "noctis"
--- lvim.colorscheme = "cobalt2"
 lvim.colorscheme = "darcula-solid"
 
 -- lvim.colorscheme = "onenord"
@@ -660,7 +659,7 @@ lvim.plugins = {
   ---------------------------------------------------------------- COLORSCHEMES
 
   -- dracula-solid
-  { "santos-gabriel-dario/darcula-solid.nvim" },
+  { "briones-gabriel/darcula-solid.nvim" },
 
   -- noctis
   { "kartikp10/noctis.nvim" },
@@ -734,10 +733,10 @@ lvim.plugins = {
 
   ------------------------------------------------------------------- DEBUGGING
   {
-    "mfussenegger/nvim-dap",
+    -- "mfussenegger/nvim-dap",
   },
   {
-    "rcarriga/nvim-dap-ui",
+    -- "rcarriga/nvim-dap-ui",
   },
 }
 -- end,
