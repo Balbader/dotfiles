@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 
 -- transparent_window
 -- lvim.transparent_window = false
@@ -31,25 +31,26 @@ vim.opt.guicursor =
 vim.opt.cursorline = true
 -- vim.opt.cursorline = false
 
+
 ------------------------------> Norminette
 -- Don't convert tabs to space
--- vim.opt.expandtab = false
+vim.opt.expandtab = false
 
 -- set tabs to 4 space
--- vim.opt.tabstop = 4
+vim.opt.tabstop = 4
 
 -- number of spaces for each indentation
--- vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 4
 
 -- autoindent
--- vim.opt.smartcase = false
--- vim.opt.autoindent = false
--- vim.opt.cindent = true
--- vim.opt.smartindent = true
+vim.opt.smartcase = false
+vim.opt.autoindent = false
+vim.opt.cindent = true
+vim.opt.smartindent = true
 ------------------------------> Norminette
 
 -- set column to 80
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 -- show sign columg
 vim.opt.signcolumn = "yes"
@@ -69,18 +70,18 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
-  -- for input mode
-  i = {
-    ["<S-j>"] = actions.move_selection_next,
-    ["<S-k>"] = actions.move_selection_previous,
-    ["<C-n>"] = actions.cycle_history_next,
-    ["<C-p>"] = actions.cycle_history_prev,
-  },
-  -- for normal mode
-  n = {
-    ["<C-j>"] = actions.move_selection_next,
-    ["<C-k>"] = actions.move_selection_previous,
-  },
+	-- for input mode
+	i = {
+		["<S-j>"] = actions.move_selection_next,
+		["<S-k>"] = actions.move_selection_previous,
+		["<C-n>"] = actions.cycle_history_next,
+		["<C-p>"] = actions.cycle_history_prev,
+	},
+	-- for normal mode
+	n = {
+		["<C-j>"] = actions.move_selection_next,
+		["<C-k>"] = actions.move_selection_previous,
+	},
 }
 
 local builtin = require('telescope.builtin')
@@ -92,13 +93,13 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+	name = "+Trouble",
+	r = { "<cmd>Trouble lsp_references<cr>", "References" },
+	f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+	d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+	q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+	w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -106,515 +107,553 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
+--
+---------------
+--   NOICE   --
+---------------
+require("noice").setup({
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true,
+    },
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false, -- add a border to hover docs and signature help
+  },
+})
+
+----------------
+--   NOTIFY   --
+----------------
+require("notify").setup({
+	background_colour = "#000000",
+})
+
+
+----------------
+--  NVIM TREE --
+----------------
 -- lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.side = "right"
--- lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.nvimtree.setup.view.width = 60;
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "cpp",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
+	"bash",
+	"c",
+	"cpp",
+	"javascript",
+	"json",
+	"lua",
+	"python",
+	"typescript",
+	"tsx",
+	"css",
+	"rust",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
---------------
+------------
 --  TODO  --
---------------
-require('todo-comments').setup({
-  signs = true,      -- show icons in the signs column
-  sign_priority = 8, -- sign priority
-  -- keywords recognized as todo comments
-  keywords = {
-    FIX = {
-      icon = " ", -- icon used for the sign, and in search results
-      color = "error", -- can be a hex color, or a named color (see below)
-      alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-      -- signs = false, -- configure signs for some keywords individually
-    },
-    TODO = { icon = " ", color = "info" },
-    HACK = { icon = " ", color = "warning" },
-    WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-    TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-  },
-  gui_style = {
-    fg = "NONE",         -- The gui style to use for the fg highlight group.
-    bg = "BOLD",         -- The gui style to use for the bg highlight group.
-  },
-  merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-  -- highlighting of the line containing the todo comment
-  -- * before: highlights before the keyword (typically comment characters)
-  -- * keyword: highlights of the keyword
-  -- * after: highlights after the keyword (todo text)
-  highlight = {
-    multiline = true,                -- enable multine todo comments
-    multiline_pattern = "^.",        -- lua pattern to match the next multiline from the start of the matched keyword
-    multiline_context = 10,          -- extra lines that will be re-evaluated when changing a line
-    before = "",                     -- "fg" or "bg" or empty
-    keyword = "wide",                -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
-    after = "fg",                    -- "fg" or "bg" or empty
-    pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
-    comments_only = true,            -- uses treesitter to match keywords in comments only
-    max_line_len = 400,              -- ignore lines longer than this
-    exclude = {},                    -- list of file types to exclude highlighting
-  },
-  -- list of named colors where we try to extract the guifg from the
-  -- list of highlight groups or use the hex color if hl not found as a fallback
-  colors = {
-    error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-    warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-    info = { "DiagnosticInfo", "#2563EB" },
-    hint = { "DiagnosticHint", "#10B981" },
-    default = { "Identifier", "#7C3AED" },
-    test = { "Identifier", "#FF00FF" }
-  },
-  search = {
-    command = "rg",
-    args = {
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-    },
-    -- regex that will be used to match keywords.
-    -- don't replace the (KEYWORDS) placeholder
-    pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-    -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
-  },
-})
+------------
+-- require('todo-comments').setup({
+-- 	signs = true,    -- show icons in the signs column
+-- 	sign_priority = 8, -- sign priority
+-- 	-- keywords recognized as todo comments
+-- 	keywords = {
+-- 		FIX = {
+-- 			icon = " ", -- icon used for the sign, and in search results
+-- 			color = "error", -- can be a hex color, or a named color (see below)
+-- 			alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+-- 			-- signs = false, -- configure signs for some keywords individually
+-- 		},
+-- 		TODO = { icon = " ", color = "info" },
+-- 		HACK = { icon = " ", color = "warning" },
+-- 		WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+-- 		PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+-- 		NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+-- 		TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+-- 	},
+-- 	gui_style = {
+-- 		fg = "NONE",     -- The gui style to use for the fg highlight group.
+-- 		bg = "BOLD",     -- The gui style to use for the bg highlight group.
+-- 	},
+-- 	merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+-- 	-- highlighting of the line containing the todo comment
+-- 	-- * before: highlights before the keyword (typically comment characters)
+-- 	-- * keyword: highlights of the keyword
+-- 	-- * after: highlights after the keyword (todo text)
+-- 	highlight = {
+-- 		multiline = true,            -- enable multine todo comments
+-- 		multiline_pattern = "^.",    -- lua pattern to match the next multiline from the start of the matched keyword
+-- 		multiline_context = 10,      -- extra lines that will be re-evaluated when changing a line
+-- 		before = "",                 -- "fg" or "bg" or empty
+-- 		keyword = "wide",            -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
+-- 		after = "fg",                -- "fg" or "bg" or empty
+-- 		pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
+-- 		comments_only = true,        -- uses treesitter to match keywords in comments only
+-- 		max_line_len = 400,          -- ignore lines longer than this
+-- 		exclude = {},                -- list of file types to exclude highlighting
+-- 	},
+-- 	-- list of named colors where we try to extract the guifg from the
+-- 	-- list of highlight groups or use the hex color if hl not found as a fallback
+-- 	colors = {
+-- 		error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+-- 		warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+-- 		info = { "DiagnosticInfo", "#2563EB" },
+-- 		hint = { "DiagnosticHint", "#10B981" },
+-- 		default = { "Identifier", "#7C3AED" },
+-- 		test = { "Identifier", "#FF00FF" }
+-- 	},
+-- 	search = {
+-- 		command = "rg",
+-- 		args = {
+-- 			"--color=never",
+-- 			"--no-heading",
+-- 			"--with-filename",
+-- 			"--line-number",
+-- 			"--column",
+-- 		},
+-- 		-- regex that will be used to match keywords.
+-- 		-- don't replace the (KEYWORDS) placeholder
+-- 		pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+-- 		-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+-- 	},
+-- })
 
 
+-------------------------------------------------------------------------------
 ----------------------------------------------------------- COLORSCHEMES SETUPS
+-------------------------------------------------------------------------------
+
 -------------
 -- ONEDARK --
 -------------
-require('onedark').setup {
-  -- main options --
-  -- style = 'cool',
-  style = 'deep',
-  -- style = 'dark',
-  -- style = 'darker',
-  -- style = 'warm',
-  -- style = 'warmer',             -- default theme style. choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-  -- transparent = false,          -- show/hide background
-  transparent = true,           -- show/hide background
-  term_colors = true,           -- change terminal color as per the selected theme style
-  -- ending_tildes = true, -- show the end-of-buffer tildes. by default they are hidden
-  ending_tildes = false,        -- show the end-of-buffer tildes. by default they are hidden
-  cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+-- require('onedark').setup {
+-- 	-- main options --
+-- 	-- style = 'cool',
+-- 	-- style = 'deep',
+-- 	-- style = 'dark',
+-- 	style = 'darker',
+-- 	-- style = 'warm',
+-- 	-- style = 'warmer',             -- default theme style. choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+-- 	-- transparent = false,          -- show/hide background
+-- 	transparent = true,         -- show/hide background
+-- 	term_colors = true,         -- change terminal color as per the selected theme style
+-- 	-- ending_tildes = true, -- show the end-of-buffer tildes. by default they are hidden
+-- 	ending_tildes = false,      -- show the end-of-buffer tildes. by default they are hidden
+-- 	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
-  -- toggle theme style ---
-  toggle_style_key = nil,                                                              -- keybind to toggle theme style. leave it nil to disable it, or set it to a string, for example "<leader>ts"
-  toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- list of styles to toggle between
+-- 	-- toggle theme style ---
+-- 	toggle_style_key = nil,                                                            -- keybind to toggle theme style. leave it nil to disable it, or set it to a string, for example "<leader>ts"
+-- 	toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- list of styles to toggle between
 
-  -- change code style ---
-  -- options are italic, bold, underline, none
-  -- you can configure multiple style with comma seperated, for e.g., keywords = 'italic,bold'
-  code_style = {
-    comments = 'italic',
-    keywords = 'italic',
-    -- functions = 'italic,bold',
-    functions = 'italic',
-    strings = 'none',
-    variables = 'none'
-  },
+-- 	-- change code style ---
+-- 	-- options are italic, bold, underline, none
+-- 	-- you can configure multiple style with comma seperated, for e.g., keywords = 'italic,bold'
+-- 	code_style = {
+-- 		comments = 'italic',
+-- 		keywords = 'italic',
+-- 		-- functions = 'italic,bold',
+-- 		functions = 'italic',
+-- 		strings = 'none',
+-- 		variables = 'none'
+-- 	},
 
-  -- lualine options --
-  lualine = {
-    transparent = true, -- lualine center bar transparency
-  },
+-- 	-- lualine options --
+-- 	lualine = {
+-- 		transparent = true, -- lualine center bar transparency
+-- 	},
 
-  -- custom highlights --
-  colors = {},     -- override default colors
-  highlights = {}, -- override highlight groups
+-- 	-- custom highlights --
+-- 	colors = {},   -- override default colors
+-- 	highlights = {}, -- override highlight groups
 
-  -- plugins config --
-  diagnostics = {
-    darker = true,      -- darker colors for diagnostic
-    undercurl = true,   -- use undercurl instead of underline for diagnostics
-    underline = false,
-    background = false, -- use background color for virtual text
-  },
-}
+-- 	-- plugins config --
+-- 	diagnostics = {
+-- 		darker = true,  -- darker colors for diagnostic
+-- 		undercurl = true, -- use undercurl instead of underline for diagnostics
+-- 		underline = false,
+-- 		background = false, -- use background color for virtual text
+-- 	},
+-- }
 
-lvim.colorscheme = "onedark"
-require('onedark').load()
+-- lvim.colorscheme = "onedark"
+-- require('onedark').load()
 
 -------------------
 --  MONOKAI PRO  --
 -------------------
-require("monokai-pro").setup({
-  -- transparent_background = false,
-  transparent_background = true,
-  terminal_colors = true,
-  devicons = true, -- highlight the icons of `nvim-web-devicons`
-  styles = {
-    comment = { italic = true },
-    keyword = { italic = true },       -- any other keyword
-    type = { italic = true },          -- (preferred) int, long, char, etc
-    storageclass = { italic = true },  -- static, register, volatile, etc
-    structure = { italic = true },     -- struct, union, enum, etc
-    parameter = { italic = true },     -- parameter pass in function
-    annotation = { italic = true },
-    tag_attribute = { italic = true }, -- attribute of tag in reactjs
-  },
-  filter = "classic",                  -- classic | octagon | pro | machine | ristretto | spectrum
-  -- Enable this will disable filter option
-  day_night = {
-    enable = false,            -- turn off by default
-    day_filter = "pro",        -- classic | octagon | pro | machine | ristretto | spectrum
-    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
-  },
-  inc_search = "background",   -- underline | background
-  background_clear = {
-    -- "float_win",
-    "toggleterm",
-    "telescope",
-    -- "which-key",
-    "renamer",
-    "notify",
-    -- "nvim-tree",
-    -- "neo-tree",
-    -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
-  }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
-  plugins = {
-    bufferline = {
-      underline_selected = false,
-      underline_visible = false,
-    },
-    indent_blankline = {
-      context_highlight = "default", -- default | pro
-      context_start_underline = false,
-    },
-  },
-  ---@param c Colorscheme
-  override = function(c) end,
-})
+-- require("monokai-pro").setup({
+-- 	-- transparent_background = false,
+-- 	transparent_background = true,
+-- 	terminal_colors = true,
+-- 	devicons = true, -- highlight the icons of `nvim-web-devicons`
+-- 	styles = {
+-- 		comment = { italic = true },
+-- 		keyword = { italic = true },   -- any other keyword
+-- 		type = { italic = true },      -- (preferred) int, long, char, etc
+-- 		storageclass = { italic = true }, -- static, register, volatile, etc
+-- 		structure = { italic = true }, -- struct, union, enum, etc
+-- 		parameter = { italic = true }, -- parameter pass in function
+-- 		annotation = { italic = true },
+-- 		tag_attribute = { italic = true }, -- attribute of tag in reactjs
+-- 	},
+-- 	filter = "classic",                -- classic | octagon | pro | machine | ristretto | spectrum
+-- 	-- Enable this will disable filter option
+-- 	day_night = {
+-- 		enable = false,        -- turn off by default
+-- 		day_filter = "pro",    -- classic | octagon | pro | machine | ristretto | spectrum
+-- 		night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+-- 	},
+-- 	inc_search = "background", -- underline | background
+-- 	background_clear = {
+-- 		-- "float_win",
+-- 		"toggleterm",
+-- 		"telescope",
+-- 		-- "which-key",
+-- 		"renamer",
+-- 		"notify",
+-- 		-- "nvim-tree",
+-- 		-- "neo-tree",
+-- 		-- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+-- 	}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+-- 	plugins = {
+-- 		bufferline = {
+-- 			underline_selected = false,
+-- 			underline_visible = false,
+-- 		},
+-- 		indent_blankline = {
+-- 			context_highlight = "default", -- default | pro
+-- 			context_start_underline = false,
+-- 		},
+-- 	},
+-- 	---@param c Colorscheme
+-- 	override = function(c) end,
+-- })
 
 --------------
 --  NORDIC  --
 --------------
-require('nordic').setup({
+-- require('nordic').setup({
 
-  -- theme = 'nordic',
-  theme = 'onedark',
+-- 	-- theme = 'nordic',
+-- 	theme = 'onedark',
 
-  bold_keywords = true,
-  italic_comments = true,
+-- 	bold_keywords = true,
+-- 	italic_comments = true,
 
-  -- transparent_bg = false,
-  transparent_bg = true,
+-- 	transparent_bg = false,
+-- 	-- transparent_bg = true,
 
-  nordic = {
-    -- Reduce the overall amount of blue in the theme (diverges from base Nord).
-    -- reduced_blue = true,
-    reduced_blue = false,
-  },
+-- 	nordic = {
+-- 		-- Reduce the overall amount of blue in the theme (diverges from base Nord).
+-- 		reduced_blue = true,
+-- 		-- reduced_blue = false,
+-- 	},
 
-  onedark = {
-    -- Brighten the whites to fit the theme better.
-    brighter_whites = true,
-  },
-  -- Override the styling of any highlight group.
-  override = {},
+-- 	onedark = {
+-- 		-- Brighten the whites to fit the theme better.
+-- 		brighter_whites = true,
+-- 	},
+-- 	-- Override the styling of any highlight group.
+-- 	override = {},
 
-  cursorline = {
-    -- Enable bold font in cursorline.
-    bold = false,
-    -- bold = true,
+-- 	cursorline = {
+-- 		-- Enable bold font in cursorline.
+-- 		-- bold = false,
+-- 		bold = true,
 
-    -- Avialable styles: 'dark', 'light'.
-    theme = 'dark',
-    -- theme = 'light',
+-- 		-- Avialable styles: 'dark', 'light'.
+-- 		-- theme = 'dark',
+-- 		theme = 'light',
 
-    -- Hide the cursorline when the window is not focused.
-    hide_unfocused = false,
-    -- hide_unfocused = true,
-  },
-  noice = {
-    -- Available styles: `classic`, `flat`.
-    -- style = 'classic',
-    style = 'flat',
-  },
-  telescope = {
-    -- Available styles: `classic`, `flat`.
-    style = 'flat',
-    -- style = 'classic',
-  },
-  leap = {
-    -- Dims the backdrop when using leap.
-    dim_backdrop = false,
-  },
-})
+-- 		-- Hide the cursorline when the window is not focused.
+-- 		hide_unfocused = false,
+-- 		-- hide_unfocused = true,
+-- 	},
+-- 	noice = {
+-- 		-- Available styles: `classic`, `flat`.
+-- 		-- style = 'classic',
+-- 		style = 'flat',
+-- 	},
+-- 	telescope = {
+-- 		-- Available styles: `classic`, `flat`.
+-- 		style = 'flat',
+-- 		-- style = 'classic',
+-- 	},
+-- 	leap = {
+-- 		-- Dims the backdrop when using leap.
+-- 		dim_backdrop = false,
+-- 	},
+-- })
 
 
 ---------------
 -- Everblush --
 ---------------
-require('everblush').setup({
-  -- Set transparent background
-  -- transparent_background = false,
-  transparent_background = true,
-})
+-- require('everblush').setup({
+-- 	-- Set transparent background
+-- 	-- transparent_background = false,
+-- 	transparent_background = true,
+-- })
 
 
 ------------------------
 -- visual_studio_code --
 ------------------------
-require('visual_studio_code').setup({
-  -- `dark` or `light`
-  mode = "dark",
-  -- Whether to load all color schemes
-  preset = true,
-  -- Whether to enable background transparency
-  transparent = false,
-  -- transparent = true,
-  -- Whether to apply the adapted plugin
-  expands = {
-    hop = true,
-    dbui = true,
-    lazy = true,
-    aerial = true,
-    fidget = true,
-    null_ls = true,
-    nvim_cmp = true,
-    gitsigns = true,
-    which_key = true,
-    nvim_tree = true,
-    lspconfig = true,
-    telescope = true,
-    bufferline = true,
-    nvim_navic = true,
-    nvim_notify = true,
-    vim_illuminate = true,
-    nvim_treesitter = true,
-    nvim_ts_rainbow = true,
-    nvim_scrollview = true,
-    nvim_ts_rainbow2 = true,
-    indent_blankline = true,
-    vim_visual_multi = true,
-  },
-  hooks = {
-    before = function(conf, colors, utils) end,
-    after = function(conf, colors, utils) end,
-  },
-})
+-- require('visual_studio_code').setup({
+-- 	-- `dark` or `light`
+-- 	mode = "dark",
+-- 	-- Whether to load all color schemes
+-- 	preset = true,
+-- 	-- Whether to enable background transparency
+-- 	transparent = false,
+-- 	-- transparent = true,
+-- 	-- Whether to apply the adapted plugin
+-- 	expands = {
+-- 		hop = true,
+-- 		dbui = true,
+-- 		lazy = true,
+-- 		aerial = true,
+-- 		fidget = true,
+-- 		null_ls = true,
+-- 		nvim_cmp = true,
+-- 		gitsigns = true,
+-- 		which_key = true,
+-- 		nvim_tree = true,
+-- 		lspconfig = true,
+-- 		telescope = true,
+-- 		bufferline = true,
+-- 		nvim_navic = true,
+-- 		nvim_notify = true,
+-- 		vim_illuminate = true,
+-- 		nvim_treesitter = true,
+-- 		nvim_ts_rainbow = true,
+-- 		nvim_scrollview = true,
+-- 		nvim_ts_rainbow2 = true,
+-- 		indent_blankline = true,
+-- 		vim_visual_multi = true,
+-- 	},
+-- 	hooks = {
+-- 		before = function(conf, colors, utils) end,
+-- 		after = function(conf, colors, utils) end,
+-- 	},
+-- })
 
 -------------
 -- NORDFOX --
 -------------
-require('nightfox').setup({
-  options = {
-    -- Compiled file's destination location
-    compile_path = vim.fn.stdpath("cache") .. "/nightfox",
-    compile_file_suffix = "_compiled", -- Compiled file suffix
-    transparent = false,               -- Disable setting background
-    terminal_colors = true,            -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-    dim_inactive = false,              -- Non focused panes set to alternative background
-    module_default = true,             -- Default enable value for modules
-    colorblind = {
-      enable = false,                  -- Enable colorblind support
-      simulate_only = false,           -- Only show simulated colorblind colors and not diff shifted
-      severity = {
-        protan = 0,                    -- Severity [0,1] for protan (red)
-        deutan = 0,                    -- Severity [0,1] for deutan (green)
-        tritan = 0,                    -- Severity [0,1] for tritan (blue)
-      },
-    },
-    styles = {           -- Style to be applied to different syntax groups
-      comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
-      conditionals = "NONE",
-      constants = "NONE",
-      functions = "NONE",
-      keywords = "NONE",
-      numbers = "NONE",
-      operators = "NONE",
-      strings = "NONE",
-      types = "NONE",
-      variables = "NONE",
-    },
-    inverse = { -- Inverse highlight for different types
-      match_paren = false,
-      visual = false,
-      search = false,
-    },
-    modules = { -- List of various plugins and additional options
-      -- ...
-    },
-  },
-  palettes = {},
-  specs = {},
-  groups = {},
-})
+-- require('nightfox').setup({
+-- 	options = {
+-- 		-- Compiled file's destination location
+-- 		compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+-- 		compile_file_suffix = "_compiled", -- Compiled file suffix
+-- 		transparent = false,           -- Disable setting background
+-- 		terminal_colors = true,        -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+-- 		dim_inactive = false,          -- Non focused panes set to alternative background
+-- 		module_default = true,         -- Default enable value for modules
+-- 		colorblind = {
+-- 			enable = false,            -- Enable colorblind support
+-- 			simulate_only = false,     -- Only show simulated colorblind colors and not diff shifted
+-- 			severity = {
+-- 				protan = 0,            -- Severity [0,1] for protan (red)
+-- 				deutan = 0,            -- Severity [0,1] for deutan (green)
+-- 				tritan = 0,            -- Severity [0,1] for tritan (blue)
+-- 			},
+-- 		},
+-- 		styles = {       -- Style to be applied to different syntax groups
+-- 			comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
+-- 			conditionals = "NONE",
+-- 			constants = "NONE",
+-- 			functions = "NONE",
+-- 			keywords = "NONE",
+-- 			numbers = "NONE",
+-- 			operators = "NONE",
+-- 			strings = "NONE",
+-- 			types = "NONE",
+-- 			variables = "NONE",
+-- 		},
+-- 		inverse = { -- Inverse highlight for different types
+-- 			match_paren = false,
+-- 			visual = false,
+-- 			search = false,
+-- 		},
+-- 		modules = { -- List of various plugins and additional options
+-- 			-- ...
+-- 		},
+-- 	},
+-- 	palettes = {},
+-- 	specs = {},
+-- 	groups = {},
+-- })
 
 --setup must be called before loading
-vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme nightfox")
 
 ----------
 -- NORD --
 ----------
-vim.g.nord_contrast = true
-vim.g.nord_borders = true
-vim.g.nord_disable_background = false
--- vim.g.nord_disable_background = true
-vim.g.nord_italic = true
-vim.g.nord_uniform_diff_background = true
-vim.g.nord_bold = false
-require('nord').set()
+-- vim.g.nord_contrast = true
+-- vim.g.nord_borders = true
+-- vim.g.nord_disable_background = false
+-- -- vim.g.nord_disable_background = true
+-- vim.g.nord_italic = true
+-- vim.g.nord_uniform_diff_background = true
+-- vim.g.nord_bold = false
+-- require('nord').set()
 
 
 ------------
 -- BAMBOO --
 ------------
-require('bamboo').setup {
-  -- Main options --
-  -- NOTE: to use the light theme, set `vim.o.background = 'light'`
-  style = 'vulgaris',                                       -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
-  toggle_style_key = nil,                                   -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
-  toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
-  transparent = true,                                       -- Show/hide background
-  dim_inactive = false,                                     -- Dim inactive windows/buffers
-  term_colors = true,                                       -- Change terminal color as per the selected theme style
-  ending_tildes = false,                                    -- Show the end-of-buffer tildes. By default they are hidden
-  cmp_itemkind_reverse = false,                             -- reverse item kind highlights in cmp menu
+-- require('bamboo').setup {
+-- 	-- Main options --
+-- 	-- NOTE: to use the light theme, set `vim.o.background = 'light'`
+-- 	style = 'vulgaris',                                     -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+-- 	toggle_style_key = nil,                                 -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
+-- 	toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
+-- 	-- transparent = true,                                     -- Show/hide background
+-- 	transparent = false,                                     -- Show/hide background
+-- 	dim_inactive = false,                                   -- Dim inactive windows/buffers
+-- 	term_colors = true,                                     -- Change terminal color as per the selected theme style
+-- 	ending_tildes = false,                                  -- Show the end-of-buffer tildes. By default they are hidden
+-- 	cmp_itemkind_reverse = false,                           -- reverse item kind highlights in cmp menu
 
-  -- Change code style ---
-  -- Options are italic, bold, underline, none
-  -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
-  code_style = {
-    comments = 'italic',
-    conditionals = 'italic',
-    keywords = 'none',
-    functions = 'none',
-    namespaces = 'italic',
-    parameters = 'italic',
-    strings = 'none',
-    variables = 'none',
-  },
+-- 	-- Change code style ---
+-- 	-- Options are italic, bold, underline, none
+-- 	-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+-- 	code_style = {
+-- 		comments = 'italic',
+-- 		conditionals = 'italic',
+-- 		keywords = 'none',
+-- 		functions = 'none',
+-- 		namespaces = 'italic',
+-- 		parameters = 'italic',
+-- 		strings = 'none',
+-- 		variables = 'none',
+-- 	},
 
-  -- Lualine options --
-  lualine = {
-    transparent = true, -- lualine center bar transparency
-  },
+-- 	-- Lualine options --
+-- 	lualine = {
+-- 		transparent = true, -- lualine center bar transparency
+-- 	},
 
-  -- Custom Highlights --
-  colors = {}, -- Override default colors
-  highlights = {
-    ['@comment'] = { fg = '$grey' },
-  }, -- Override highlight groups
+-- 	-- Custom Highlights --
+-- 	colors = {}, -- Override default colors
+-- 	highlights = {
+-- 		['@comment'] = { fg = '$grey' },
+-- 	}, -- Override highlight groups
 
-  -- Plugins Config --
-  diagnostics = {
-    darker = true,     -- darker colors for diagnostic
-    undercurl = true,  -- use undercurl instead of underline for diagnostics
-    background = true, -- use background color for virtual text
-  },
-}
+-- 	-- Plugins Config --
+-- 	diagnostics = {
+-- 		darker = true, -- darker colors for diagnostic
+-- 		undercurl = true, -- use undercurl instead of underline for diagnostics
+-- 		background = true, -- use background color for virtual text
+-- 	},
+-- }
 
 -------------
 -- BLULOCO --
 -------------
-require("bluloco").setup({
-  style       = "dark", -- "auto" | "dark" | "light"
-  -- transparent = true,
-  transparent = false,
-  italics     = true,
-  terminal    = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
-  guicursor   = true,
-})
+-- require("bluloco").setup({
+-- 	style       = "dark", -- "auto" | "dark" | "light"
+-- 	-- transparent = true,
+-- 	transparent = false,
+-- 	italics     = true,
+-- 	terminal    = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
+-- 	guicursor   = true,
+-- })
 
 -----------------
 -- TOKYO NIGHT --
 -----------------
-require("tokyonight").setup({
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  style = "dark",         -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  light_style = "day",    -- The theme is used when the background is set to light
-  transparent = false,    -- Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
-  styles = {
-    -- Style to be applied to different syntax groups
-    -- Value is any valid attr-list value for `:help nvim_set_hl`
-    comments = { italic = true },
-    keywords = { italic = true },
-    functions = { italic = true },
-    variables = { bold = true },
-    -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "dark",              -- style for sidebars, see below
-    floats = "dark",                -- style for floating windows
-  },
-  sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false,             -- dims inactive windows
-  lualine_bold = true,              -- When `true`, section headers in the lualine theme will be bold
+-- require("tokyonight").setup({
+-- 	-- your configuration comes here
+-- 	-- or leave it empty to use the default settings
+-- 	style = "dark",       -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+-- 	light_style = "day",  -- The theme is used when the background is set to light
+-- 	transparent = false,  -- Enable this to disable setting the background color
+-- 	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+-- 	styles = {
+-- 		-- Style to be applied to different syntax groups
+-- 		-- Value is any valid attr-list value for `:help nvim_set_hl`
+-- 		comments = { italic = true },
+-- 		keywords = { italic = true },
+-- 		functions = { italic = true },
+-- 		variables = { bold = true },
+-- 		-- Background styles. Can be "dark", "transparent" or "normal"
+-- 		sidebars = "dark",          -- style for sidebars, see below
+-- 		floats = "dark",            -- style for floating windows
+-- 	},
+-- 	sidebars = { "qf", "help" },    -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+-- 	day_brightness = 0.3,           -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+-- 	hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+-- 	dim_inactive = false,           -- dims inactive windows
+-- 	lualine_bold = true,            -- When `true`, section headers in the lualine theme will be bold
 
-  --- You can override specific color groups to use other groups or a hex color
-  --- function will be called with a ColorScheme table
-  ---@param colors ColorScheme
-  on_colors = function(colors) end,
+-- 	--- You can override specific color groups to use other groups or a hex color
+-- 	--- function will be called with a ColorScheme table
+-- 	---@param colors ColorScheme
+-- 	on_colors = function(colors) end,
 
-  --- You can override specific highlights to use other groups or a hex color
-  --- function will be called with a Highlights and ColorScheme table
-  ---@param highlights Highlights
-  ---@param colors ColorScheme
-  on_highlights = function(highlights, colors) end,
-})
+-- 	--- You can override specific highlights to use other groups or a hex color
+-- 	--- function will be called with a Highlights and ColorScheme table
+-- 	---@param highlights Highlights
+-- 	---@param colors ColorScheme
+-- 	on_highlights = function(highlights, colors) end,
+-- })
 
 -------------
 -- GRUVBOX --
 -------------
-require('gruvbox').setup({
-  undercurl = true,
-  underline = true,
-  bold = false,
-  -- italic = true,
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true,    -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
-  -- contrast = "", -- can be "hard", "soft" or empty string
-  palette_overrides = {},
-  overrides = {},
-  dim_inactive = false,
-  transparent_mode = true,
-})
+-- require('gruvbox').setup({
+-- 	undercurl = true,
+-- 	underline = true,
+-- 	bold = false,
+-- 	-- italic = true,
+-- 	strikethrough = true,
+-- 	invert_selection = false,
+-- 	invert_signs = false,
+-- 	invert_tabline = false,
+-- 	invert_intend_guides = false,
+-- 	inverse = true,  -- invert background for search, diffs, statuslines and errors
+-- 	contrast = "hard", -- can be "hard", "soft" or empty string
+-- 	-- contrast = "", -- can be "hard", "soft" or empty string
+-- 	palette_overrides = {},
+-- 	overrides = {},
+-- 	dim_inactive = false,
+-- 	transparent_mode = false,
+-- })
 
 ----------------------
 -- GRUVBOX-MATERIAL --
 ----------------------
-vim.g.gruvbox_material_background = 'hard'
-vim.g.gruvbox_material_foreround = 'default'
-vim.g.gruvbox_material_enable_italic = 1
-vim.g.gruvbox_material_cursor = 'orange'
-vim.g.gruvbox_material_transparent_background = 2
-vim.g.gruvbox_material_dim_inactive_windows = 1
-vim.g.gruvbox_material_show_eob = 0
-vim.g.gruvbox_material_ui_contrast = 'high'
-vim.g.gruvbox_material_float_style = 'dim'
-vim.g.gruvbox_material_diagnostic_text_highlight = 1
-vim.g.gruvbox_material_diagnostic_line_highlight = 1
-vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
-vim.g.gruvbox_material_statusline_style = 'default'
-vim.g.gruvbox_material_better_performance = 1
+-- vim.g.gruvbox_material_background = 'hard'
+-- vim.g.gruvbox_material_foreround = 'default'
+-- vim.g.gruvbox_material_enable_italic = 1
+-- vim.g.gruvbox_material_cursor = 'orange'
+-- vim.g.gruvbox_material_transparent_background = 1
+-- vim.g.gruvbox_material_dim_inactive_windows = 1
+-- vim.g.gruvbox_material_show_eob = 0
+-- vim.g.gruvbox_material_ui_contrast = 'high'
+-- vim.g.gruvbox_material_float_style = 'dim'
+-- vim.g.gruvbox_material_diagnostic_text_highlight = 1
+-- vim.g.gruvbox_material_diagnostic_line_highlight = 1
+-- vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
+-- vim.g.gruvbox_material_statusline_style = 'default'
+-- vim.g.gruvbox_material_better_performance = 1
 
 
 ------------------------------------------------------------------ COLORSCHEMES
@@ -625,6 +664,7 @@ vim.g.gruvbox_material_better_performance = 1
 -- lvim.colorscheme = "solarized-osaka"
 -- lvim.colorscheme = "noctis"
 lvim.colorscheme = "darcula-solid"
+-- lvim.colorscheme = "poimandres"
 
 -- lvim.colorscheme = "onenord"
 -- lvim.colorscheme = "nordfox"
@@ -656,87 +696,135 @@ lvim.colorscheme = "darcula-solid"
 
 lvim.plugins = {
 
-  ---------------------------------------------------------------- COLORSCHEMES
+	---------------------------------------------------------------- COLORSCHEMES
 
-  -- dracula-solid
-  { "briones-gabriel/darcula-solid.nvim" },
+	-- dracula-solid
+	{ "briones-gabriel/darcula-solid.nvim" },
 
-  -- noctis
-  { "kartikp10/noctis.nvim" },
+	-- poimandres
+	{ "olivercederborg/poimandres.nvim" },
 
-  -- bluloco
-  { "uloco/bluloco.nvim" },
+	-- noctis
+	{ "kartikp10/noctis.nvim" },
 
-  -- bamboo
-  { "ribru17/bamboo.nvim" },
+	-- bluloco
+	{ "uloco/bluloco.nvim" },
 
-  -- solarized-osaka
-  { "craftzdog/solarized-osaka.nvim" },
+	-- bamboo
+	{ "ribru17/bamboo.nvim" },
 
-  -- everblush
-  { "Everblush/nvim" },
+	-- solarized-osaka
+	{ "craftzdog/solarized-osaka.nvim" },
 
-  -- nightfox
-  { "EdenEast/nightfox.nvim" },
+	-- everblush
+	{ "Everblush/nvim" },
 
-  -- nordic
-  { "AlexvZyl/nordic.nvim" },
+	-- nightfox
+	{ "EdenEast/nightfox.nvim" },
 
-  -- nord
-  { "shaunsingh/nord.nvim" },
+	-- nordic
+	{ "AlexvZyl/nordic.nvim" },
 
-  -- tokyo
-  { "tiagovla/tokyodark.nvim" },
+	-- nord
+	{ "shaunsingh/nord.nvim" },
 
-  -- vscode
-  { "Mofiqul/vscode.nvim" },
-  { "martinsione/darkplus.nvim" },
-  { "askfiy/visual_studio_code" },
+	-- tokyo
+	{ "tiagovla/tokyodark.nvim" },
 
-  -- one
-  { "NTBBloodbath/doom-one.nvim" },
-  { "rmehri01/onenord.nvim" },
-  { "navarasu/onedark.nvim" },
+	-- vscode
+	{ "Mofiqul/vscode.nvim" },
+	{ "martinsione/darkplus.nvim" },
+	{ "askfiy/visual_studio_code" },
 
-  -- gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-  { "sainnhe/gruvbox-material" },
+	-- one
+	{ "NTBBloodbath/doom-one.nvim" },
+	{ "rmehri01/onenord.nvim" },
+	{ "navarasu/onedark.nvim" },
 
-  -- extra colorscheme
-  { "loctvl842/monokai-pro.nvim" },
-  { "fenetikm/falcon" },
+	-- gruvbox
+	{ "ellisonleao/gruvbox.nvim" },
+	{ "sainnhe/gruvbox-material" },
+
+	-- extra colorscheme
+	{ "loctvl842/monokai-pro.nvim" },
+	{ "fenetikm/falcon" },
 
 
-  --------------------------------------------------------------------- PLUGINS
+	--------------------------------------------------------------------- PLUGINS
 
-  -- { "lukoshkin/trailing-whitespace" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-  {
-    "folke/lsp-colors.nvim",
-    event = "BufRead",
-  },
-  {
-    "folke/todo-comments.nvim",
-  },
-  {
-    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-  },
-  {
-    "tjdevries/colorbuddy.nvim",
-  },
-  {
-    "rktjmp/lush.nvim",
-  },
+	-- { "lukoshkin/trailing-whitespace" },
+	{
+		"folke/trouble.nvim",
+		cmd = "TroubleToggle",
+	},
+	{
+		"folke/lsp-colors.nvim",
+		event = "BufRead",
+	},
+	{
+		"folke/todo-comments.nvim",
+	},
+	{
+		  "folke/noice.nvim",
+		  event = "VeryLazy",
+		  opts = {
+			-- add any options here
+		  },
+		  dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+			}
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+		vim.o.timeout = true
+		vim.o.timeoutlen = 300
+		end,
+		opts = {
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+		}
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+			{ "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+			{ "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+			{ "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			{ "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+		},
+	},
+	{
+		"tjdevries/colorbuddy.nvim",
+	},
+	{
+		"rktjmp/lush.nvim",
+	},
+	{
+		"kkoomen/vim-doge",
+	},
+	{
+		"nvim-neorg/neorg",
+	},
 
-  ------------------------------------------------------------------- DEBUGGING
-  {
-    -- "mfussenegger/nvim-dap",
-  },
-  {
-    -- "rcarriga/nvim-dap-ui",
-  },
+	------------------------------------------------------------------- DEBUGGING
+	{
+		-- "mfussenegger/nvim-dap",
+	},
+	{
+		-- "rcarriga/nvim-dap-ui",
+	},
 }
 -- end,
