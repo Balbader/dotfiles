@@ -37,3 +37,12 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- just add the following code into the lua/core/init.lua in your nvchad configuration
+-- format on save
+vim.cmd [[
+    augroup format_on_save
+      autocmd!
+      autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
+    augroup end
+  ]]
