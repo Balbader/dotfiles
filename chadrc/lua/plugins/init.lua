@@ -22,6 +22,16 @@ return {
         },
     },
     {
+        "chikko80/error-lens.nvim",
+        event = "BufRead",
+        dependencies = {
+            "nvim-telescope/telescope.nvim"
+        },
+        opts = {
+            -- your options go here
+        },
+    },
+    {
         "yetone/avante.nvim",
         event = "VeryLazy",
         lazy = false,
