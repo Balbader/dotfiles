@@ -1,0 +1,107 @@
+[
+	// Navigate between editor and terminal
+	{
+		"key": "ctrl+o",
+		"command": "workbench.action.terminal.focus"
+	},
+	{
+		"key": "ctrl+o",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.files.action.focusFilesExplorer"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "filesExplorerFocus"
+	},
+
+	// Navigate open Editors
+	{
+		"key": "ctrl+f",
+		"command": "workbench.action.nextEditor"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "workbench.action.previousEditor"
+	},
+
+	// switch between terminal sessions
+	// {
+	// 	"key": "ctrl+p",
+	// 	"command": "workbench.action.chat.focus"
+	// },
+	// {
+	// 	"key": "ctrl+shift+p",
+	// 	"command": "workbench.action.terminal.focusPrevious"
+	// },
+
+	// switch between chat sessions
+	// {
+	// 	"key": "alt+p",
+	// 	"command": "chat.action.focus"
+	// },
+	// {
+	// 	"key": "alt+shift+p",
+	// 	"command": "workbench.action.chat.focusPrevious"
+	// },
+
+	// Live Grep
+	{
+		"key": "cmd+s",
+		"command": "livegrep.search"
+	},
+
+	// Open / Close Sidebar
+	{
+		"key": "cmd+g",
+		"command": "workbench.action.toggleSidebarVisibility"
+	},
+
+	// New file
+	{
+		"key": "cmd+n",
+		"command": "explorer.newFile"
+	},
+
+	// New folder
+	{
+		"key": "cmd+m",
+		"command": "explorer.newFolder"
+	},
+
+	// Close file
+	{
+		"key": "ctrl+x",
+		"command": "workbench.action.closeActiveEditor"
+	},
+
+	// Tab to cycle through auto-complete options
+	{
+		"key": "tab",
+		"command": "selectNextSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+
+	// hjkl Navigation
+	{
+		"key": "ctrl+j",
+		"command": "cursorDown"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "cursorUp"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "cursorLeft"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "cursorRight"
+	}
+]
+
