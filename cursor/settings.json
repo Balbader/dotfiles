@@ -1,101 +1,44 @@
 {
+	// * Editor
+	"editor.fontSize": 18,
+	"editor.lineNumbers": "on",
+	"editor.rulers": [80],
 	"editor.formatOnType": true,
 	"editor.copyWithSyntaxHighlighting": false,
-	"diffEditor.ignoreTrimWhitespace": false,
 	"editor.emptySelectionClipboard": false,
-	"workbench.editor.enablePreview": false,
-	"window.newWindowDimensions": "inherit",
 	"editor.multiCursorModifier": "ctrlCmd",
-	"files.trimTrailingWhitespace": true,
-	"diffEditor.renderSideBySide": false,
 	"editor.snippetSuggestions": "top",
 	"editor.detectIndentation": false,
-	"window.nativeFullScreen": true,
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
-	"workbench.statusBar.visible": true,
-	"workbench.editor.showTabs": "multiple",
 	"editor.minimap.enabled": true,
-	"editor.lineNumbers": "off",
-	"editor.rulers": [80],
-	"breadcrumbs.enabled": true,
-	"scm.diffDecorations": "none",
+	"editor.minimap.showSlider": "always",
 	"editor.hover.enabled": true,
-	"editor.matchBrackets": "never",
-	"workbench.tips.enabled": false,
+	"editor.matchBrackets": "near",
 	"editor.colorDecorators": true,
-	"git.decorations.enabled": true,
 	"editor.lightbulb.enabled": "on",
 	"editor.selectionHighlight": false,
 	"editor.renderLineHighlight": "all",
-	"editor.occurrencesHighlight": "off",
-	"problems.decorations.enabled": false,
 	"editor.renderControlCharacters": false,
+	"editor.occurrencesHighlight": "off",
 	"editor.hideCursorInOverviewRuler": true,
 	"editor.gotoLocation.multipleReferences": "goto",
 	"editor.gotoLocation.multipleDefinitions": "goto",
 	"editor.gotoLocation.multipleDeclarations": "goto",
-	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"editor.gotoLocation.multipleImplementations": "goto",
 	"editor.gotoLocation.multipleTypeDefinitions": "goto",
+	"editor.fontLigatures": true,
+	"editor.lineHeight": 30,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.guides.indentation": false,
+
 	// "editor.fontFamily": "'ComicShannsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
 	// "editor.fontFamily": "'SauceCodePro Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
 	// "editor.fontFamily": "'Inconsolata Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
 	// "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
 	"editor.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
 	// "editor.fontFamily": "'GeistMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	"editor.fontLigatures": true,
-	"editor.lineHeight": 28,
-	"editor.suggestFontSize": 12,
-	"editor.suggestLineHeight": 28,
 
-	// "terminal.integrated.fontFamily": "FiraCode Nerd Font, Droid Sans Mono, monospace, monospace",
-	// "terminal.integrated.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "terminal.integrated.fontFamily": "'Inconsolata Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	"terminal.integrated.fontFamily": "'GeistMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	"terminal.integrated.lineHeight": 1,
-	"terminal.integrated.fontSize": 12,
-
-	"window.zoomLevel": 2,
-	"apc.stylesheet": {
-		".anysphere-markdown-container-root": "font-size: 16px; line-height: 1.4;"
-	},
-	"editor.guides.indentation": false,
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"prettier.enable": true,
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"window.customTitleBarVisibility": "auto",
-	"prettier.singleQuote": true,
-	"prettier.tabWidth": 2,
-	"prettier.useTabs": true,
-	"indentRainbow.errorColor": "rgba(128,32,32,0.6)",
-	"indentRainbow.tabmixColor": "rgba(128,32,96,0.6)",
-	"indentRainbow.indicatorStyle": "light",
-	"eslint.format.enable": true,
-	"eslint.problems.shortenToSingleLine": true,
-	"editor.insertSpaces": false,
-	"editor.formatOnSave": true,
-	"liveServer.settings.donotShowInfoMsg": true,
-	"git.openRepositoryInParentFolders": "always",
 	"editor.tokenColorCustomizations": {
 		"[Tokyo Night]": {
 			"textMateRules": [
@@ -170,40 +113,136 @@
 			}
 		]
 	},
+
+	// * Terminal
+	"terminal.integrated.fontFamily": "FiraCode Nerd Font, Droid Sans Mono, monospace, monospace",
+	// "terminal.integrated.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "terminal.integrated.fontFamily": "'Inconsolata Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "terminal.integrated.fontFamily": "'GeistMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	"terminal.integrated.lineHeight": 1,
+	"terminal.integrated.fontSize": 12,
+
+	// * Workbench
+	"workbench.editor.enablePreview": false,
+	"workbench.statusBar.visible": true,
+	"workbench.tree.enableStickyScroll": false,
+	"workbench.tree.renderIndentGuides": "onHover",
+	"workbench.editor.showTabs": "multiple",
+	"workbench.tips.enabled": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false,
+	"workbench.preferredDarkColorTheme": "Moon",
+	"workbench.tree.indent": 18,
+	"workbench.colorTheme": "Moon",
 	"workbench.colorCustomizations": {
 		// "editorCursor.foreground": "#73e340"
-		"editorCursor.foreground": "#be9b33"
+		// "editorCursor.foreground": "#be9b33"
 		// "editorCursor.foreground": "#40e3af"
 		// "editorCursor.foreground": "#326435"
 	},
-	"errorLens.gutterIconsEnabled": true,
-	"errorLens.messageBackgroundMode": "none",
+
+	// * Diff Editor
+	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.renderSideBySide": false,
+
+	// * Git
+	"git.decorations.enabled": true,
+	"git.openRepositoryInParentFolders": "always",
+	"git.autofetch": true,
+
+	// * Window
+	"window.newWindowDimensions": "inherit",
+	"window.nativeFullScreen": true,
+	"window.zoomLevel": 1,
+	"window.customTitleBarVisibility": "windowed",
+
+	// * Files
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.autoSave": "afterDelay",
 	"files.associations": {
 		"*.html": "html"
 	},
-	"workbench.tree.indent": 16,
-	"files.autoSave": "afterDelay",
-	"explorer.compactFolders": false,
-	"material-icon-theme.hidesExplorerArrows": true,
+
+	// * Explorer
 	"explorer.confirmDelete": false,
-	"workbench.colorTheme": "ayu MiDas",
+	"explorer.confirmDragAndDrop": false,
+	"explorer.compactFolders": false,
+
+	// * Error Lens
+	"errorLens.gutterIconsEnabled": true,
+	"errorLens.messageBackgroundMode": "none",
+
+	// * Stuff
 	"emmet.extensionsPath": [""],
-	"editor.tabSize": 2,
-	"workbench.preferredDarkColorTheme": "Ayu Mirage Bordered",
 	"cursor.aipreview.enabled": true,
 	"chat.editor.fontSize": 16,
 	"pgsql.resultsFontSize": 16,
 	"markdown.preview.fontSize": 16,
 	"vsicons.dontShowNewVersionMessage": true,
-	"explorer.confirmDragAndDrop": false,
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"javascript.updateImportsOnFileMove.enabled": "always",
+	"breadcrumbs.enabled": true,
+	"scm.diffDecorations": "none",
+	"liveServer.settings.donotShowInfoMsg": true,
+	"problems.decorations.enabled": true,
+	"makefile.configureOnOpen": true,
+
+	// * Spell Checking
+	"cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 20000,
+	"cSpell.blockCheckingWhenAverageChunkSizeGreaterThan": 20000,
+
+	// * Indentation
+	"indentRainbow.errorColor": "rgba(128,32,32,0.6)",
+	"indentRainbow.tabmixColor": "rgba(128,32,96,0.6)",
+	"indentRainbow.indicatorStyle": "light",
+
+	// * Eslint
+	"eslint.format.enable": true,
+	"eslint.problems.shortenToSingleLine": true,
+
+	// * APC
+	"apc.stylesheet": {
+		".anysphere-markdown-container-root": "font-size: 16px; line-height: 1.4;"
+	},
+
+	// * Prettier
+	"prettier.enable": true,
+	"prettier.singleQuote": true,
+	"prettier.tabWidth": 2,
+	"prettier.useTabs": true,
+	"prettier.trailingComma": "all",
+
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
-	},
-	"cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 20000,
-	"git.autofetch": true,
-	"makefile.configureOnOpen": true,
-	"editor.fontSize": 14
+	}
 }
 
