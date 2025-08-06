@@ -1,0 +1,81 @@
+[
+	// Navigate between editor and terminal
+	{
+		"key": "alt+o",
+		"command": "workbench.action.terminal.focus"
+	},
+	{
+		"key": "alt+o",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.files.action.focusFilesExplorer"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "filesExplorerFocus"
+	},
+
+	// Navigate open Editors
+	{
+		"key": "ctrl+f",
+		"command": "workbench.action.nextEditor"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "workbench.action.previousEditor"
+	},
+
+	// Live Grep
+	{
+		"key": "ctrl+s",
+		"command": "livegrep.search"
+	},
+
+	// Open / Close Sidebar
+	{
+		"key": "ctrl+g",
+		"command": "workbench.action.toggleSidebarVisibility"
+	},
+
+	// New file
+	{
+		"key": "alt+n",
+		"command": "explorer.newFile"
+	},
+
+	// New folder
+	{
+		"key": "alt+m",
+		"command": "explorer.newFolder"
+	},
+
+	// Close file
+	{
+		"key": "ctrl+w",
+		"command": "workbench.action.closeActiveEditor"
+	},
+
+	// Tab to cycle through auto-complete options
+	{
+		"key": "tab",
+		"command": "selectNextSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	{
+		"key": "alt+l",
+		"command": "workbench.action.chat.openAsk"
+	},
+	{
+		"key": "alt+i",
+		"command": "workbench.action.chat.openAgent"
+	},
+	{
+		"key": "alt+;",
+		"command": "workbench.panel.chat"
+	}
+]
+
