@@ -1,16 +1,15 @@
 {
-	"editor.lineNumbers": "on",
-	"editor.rulers": [80],
+	"editor.lineNumbers": "relative",
+	"editor.rulers": [120],
 	"editor.formatOnType": true,
 	"editor.copyWithSyntaxHighlighting": false,
 	"editor.emptySelectionClipboard": false,
 	"editor.multiCursorModifier": "ctrlCmd",
 	"editor.snippetSuggestions": "top",
-	"editor.detectIndentation": false,
 	"editor.minimap.enabled": true,
 	"editor.minimap.showSlider": "always",
 	"editor.hover.enabled": true,
-	"editor.matchBrackets": "near",
+	"editor.matchBrackets": "never",
 	"editor.colorDecorators": true,
 	"editor.lightbulb.enabled": "on",
 	"editor.selectionHighlight": false,
@@ -24,51 +23,107 @@
 	"editor.gotoLocation.multipleImplementations": "goto",
 	"editor.gotoLocation.multipleTypeDefinitions": "goto",
 	"editor.fontLigatures": true,
-	"editor.lineHeight": 25,
+	"editor.lineHeight": 26,
+	"editor.letterSpacing": 0.5,
+	"editor.cursorWidth": 2,
+	"editor.cursorStyle": "line-thin",
+	"editor.cursorBlinking": "smooth",
+	// "editor.cursorBlinking": "expand",
+	"editor.cursorSurroundingLinesStyle": "default",
+	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.insertSpaces": true,
 	"editor.formatOnSave": true,
+	"editor.smoothScrolling": true,
+	"editor.inlineSuggest.enabled": true,
+	"editor.detectIndentation": false,
 	"editor.guides.indentation": false,
+	"keyboard.dispatch": "keyCode",
 
-	// "editor.fontFamily": "'ComicShannsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "editor.fontFamily": "'SauceCodePro Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "editor.fontFamily": "'Inconsolata Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
 	"editor.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "editor.fontFamily": "'GeistMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "editor.fontFamily": "'ComicShannsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+	// "editor.fontFamily": "'FantasqueSansM Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+	// "editor.fontFamily": "'Hasklug Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
 
 	// * Window
 	"window.newWindowDimensions": "inherit",
-	"window.nativeFullScreen": true,
-	"window.zoomLevel": 2,
+	"window.zoomLevel": 1,
 	"window.customTitleBarVisibility": "windowed",
+	"window.menuBarVisibility": "compact",
+	"window.title": "${rootName}",
 
 	// * Terminal
+	"terminal.integrated.fontFamily": "ComicShannsMono Nerd Font, Droid Sans Mono, monospace, monospace",
 	// "terminal.integrated.fontFamily": "FiraCode Nerd Font, Droid Sans Mono, monospace, monospace",
-	"terminal.integrated.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "terminal.integrated.fontFamily": "'Inconsolata Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-	// "terminal.integrated.fontFamily": "'GeistMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "terminal.integrated.fontFamily": "'BlexMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+	// "terminal.integrated.fontFamily": "'Hasklug Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+
 	"terminal.integrated.lineHeight": 1,
-	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.fontSize": 13,
+	"terminal.explorerKind": "external",
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.defaultProfile.windows": "Git Bash",
 
 	// * Workbench
 	"workbench.sideBar.location": "left",
-	"workbench.activityBar.location": "top",
+	"workbench.activityBar.location": "default",
 	"workbench.activityBar.orientation": "vertical",
 	"workbench.editor.enablePreview": false,
 	"workbench.statusBar.visible": true,
-	"workbench.tree.enableStickyScroll": true,
+	"workbench.tree.enableStickyScroll": false,
 	"workbench.tree.renderIndentGuides": "onHover",
 	"workbench.editor.showTabs": "multiple",
 	"workbench.tips.enabled": false,
 	"workbench.editor.enablePreviewFromQuickOpen": false,
-	"workbench.preferredDarkColorTheme": "Moon",
-	"workbench.tree.indent": 18,
+	"workbench.tree.indent": 20,
 	"workbench.colorCustomizations": {
-		// "editorCursor.foreground": "#73e340"
-		// "editorCursor.foreground": "#be9b33"
-		// "editorCursor.foreground": "#ba4d05"
-		// "editorCursor.foreground": "#40e3af"
-		// "editorCursor.foreground": "#326435"
+		// "editorCursor.foreground": "#40b808",
+		// "editorCursor.foreground": "#be9b33",
+		// "editorCursor.foreground": "#ba4d05",
+		// "editorCursor.foreground": "#a4dfcc",
+		// "editorCursor.foreground": "#326435",
+		// "editorCursor.foreground": "#049090",
+		// "editorCursor.foreground": "#868887",
+		// "editorCursor.foreground": "#bcbcbc",
+		// "editorCursor.foreground": "#b87810",
+		// "tab.activeBorder": "#a1e87f",
+		// "tab.activeBorderTop": "#32613B",
+		// "tab.activeBorderTop": "#868887",
+		// "list.inactiveSelectionBackground": "#292929",
+		// "list.inactiveSelectionBackground": "#b87810",
+		// "list.inactiveFocusOutline": "#a1e87f",
+		// ===========================================================
+		// = Green World                                             =
+		// ===========================================================
+		// "tab.activeBorder": "#32613B",
+		// "list.inactiveSelectionBackground": "#37483883",
+		// "list.activeSelectionBackground": "#37483883",
+		// "list.focusAndSelectionOutline": "#4e695083",
+		// "list.focusOutline": "#374838",
+
+		// ===========================================================
+		// = Darcula                                                 =
+		// ===========================================================
+		"tab.activeBorderTop": "#b87810",
+		"list.inactiveSelectionBackground": "#140d0165",
+		"list.inactiveSelectionIconForeground": "#fff",
+		"list.activeSelectionBackground": "#140d0165",
+		"list.activeSelectionIconForeground": "#fff",
+		"list.focusAndSelectionOutline": "#b8781082",
+		"list.focusBackground": "#b8781082",
+		"list.focusOutline": "#b8781082",
+		"statusBarItem.remoteBackground": "#292929"
+
+		// "list.focusOutline": "#a1e87f",
+		// "list.focusOutline": "#313131",
+
+		// "statusBarItem.remoteForeground": "#459052",
+		// "statusBarItem.remoteBackground": "#1b2336",
+		// "statusBarItem.remoteForeground": "#a1e87f"
+		// "statusBarItem.remoteBackground": "#ee9639",
+		// "statusBarItem.remoteBackground": "#32613B",
+		// "statusBarItem.remoteForeground": "#d2ce96",
+		// "statusBarItem.remoteForeground": "#959595"
 	},
 
 	// * Diff Editor
@@ -100,9 +155,7 @@
 
 	// * Stuff
 	"emmet.extensionsPath": [""],
-	"cursor.aipreview.enabled": true,
 	"chat.editor.fontSize": 16,
-	"pgsql.resultsFontSize": 16,
 	"markdown.preview.fontSize": 16,
 	"vsicons.dontShowNewVersionMessage": true,
 	"typescript.updateImportsOnFileMove.enabled": "always",
@@ -114,8 +167,8 @@
 	"makefile.configureOnOpen": true,
 
 	// * Spell Checking
-	"cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 20000,
-	"cSpell.blockCheckingWhenAverageChunkSizeGreaterThan": 20000,
+	// "cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 20000,
+	// "cSpell.blockCheckingWhenAverageChunkSizeGreaterThan": 20000,
 
 	// * Indentation
 	"indentRainbow.errorColor": "rgba(128,32,32,0.6)",
@@ -123,51 +176,69 @@
 	"indentRainbow.indicatorStyle": "light",
 
 	// * Eslint
-	"eslint.format.enable": true,
-	"eslint.problems.shortenToSingleLine": true,
+	// "eslint.format.enable": true,
+	// "eslint.problems.shortenToSingleLine": true,
 
 	// * APC
-	"apc.stylesheet": {
-		".anysphere-markdown-container-root": "font-size: 16px; line-height: 1.4;"
-	},
+	// "apc.stylesheet": {
+	// 	".anysphere-markdown-container-root": "font-size: 16px; line-height: 1.4;"
+	// },
 
 	// * Prettier
 	"prettier.enable": true,
 	"prettier.singleQuote": true,
-	"prettier.tabWidth": 2,
+	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 
 	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 2
+	},
+
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 2
+	},
+
+	"[yml]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4
 	},
 
 	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 2
 	},
 
-	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1
+	"[go]": {
+		"editor.defaultFormatter": "golang.go",
+		"editor.tabSize": 4
 	},
 
 	"editor.tokenColorCustomizations": {
@@ -191,9 +262,7 @@
 					}
 				},
 				{
-					"scope": [
-						"comment.block.documentation entity.name.type punctuation.definition.bracket"
-					],
+					"scope": ["comment.block.documentation entity.name.type punctuation.definition.bracket"],
 					"settings": {
 						"foreground": "#bb9af7"
 					}
@@ -244,8 +313,12 @@
 			}
 		]
 	},
-	"workbench.iconTheme": "gruvbox-icon-theme",
-	"editor.fontSize": 14,
-	"workbench.colorTheme": "Kanagawa Wave"
+	"workbench.productIconTheme": "icons-carbon",
+	"workbench.preferredDarkColorTheme": "Tokyo Night",
+	"workbench.iconTheme": "vscode-icons",
+	"prettier.printWidth": 120,
+	"[markdown]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	},
+	"workbench.colorTheme": "Default Dark Modern"
 }
-
